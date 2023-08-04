@@ -1,0 +1,38 @@
+Security groups are the fundamental of network security in AWS
+They control how traffic is allowed into or out of our EC2 instances
+
+
+-----------------------
+
+Security groups only contain ALLOW rules
+Security groups rules can reference by IP or by security group.
+
+Security groups are acting as a “firewall” on ec2 instances
+They regulate
+  Access to ports
+  Authorised IP ranges - ipv4 and ipv6
+  Control of inbound network
+  Control of outbound network
+---------------------
+
+Security groups good to know
+
+Can be attached to multiple instances
+Locked down to a region/VPC combination
+Does live outside the EC2 - if traffic is blocked the EC2 instance wont see it
+Its good to maintain one separate security group for SSH access
+If your application is not accessible (time out), then its a security group issue
+If your application gives a “connection refused” error, then its an application error or its not launched
+All inbound traffic is blocked by default
+All outbound traffic is allowed by default
+
+---------------------------
+
+PORTS YOU NEED TO KNOW 
+
+22 = SSH (secure shell) - log into a linux instance
+21 = FTP (file transfer protocol) - upload files into a file share
+22 = SFTP (secure file transfer protocol) - upload files using SSH
+80 = HTTP - access unsecured websites
+443 = HTTPS - access secured websites
+3389 = RDP (remote desktop protocol) - log into a windows instance
