@@ -55,3 +55,80 @@ Storage optimized
         I, D or H1 family
 Instance features
 Measuring instance performance
+
+-----------------------------
+EC2 Spot instance requests
+
+Can get a discount of up to 90% compared to on-demand
+
+Define max spot price and get the instance while current spot price < max
+    The hourly spot price varies based on offer and capacity
+    If the current spot price> your max price you can choose to stop[ or terminate your instance within a 2 minute grace period
+
+Spot Block
+    Block spot instance during a specified time frame 1to 6 hours without interruptions
+
+
+How to terminate spot instances?
+
+Spot request
+    Maximum price
+    Desired number of instances
+    Launch specification
+    Request type: one time| persistent
+    Valid from, valid until
+
+You can only cancel spot instances requests that are open, active, or disabled.
+
+Canceling a spot request does not terminate instances.
+
+You must first cancel a spot request then terminate the associated spot instances.
+
+---------------------------
+Spot fleets
+
+SPOT FLEETS = set of spot instances + (optional) on-demand instances
+
+The spot fleet will try to meet the target capacity with price constraints.
+
+    Define possible launch pools: instance type, OS, AZ’s
+    Can have multiple launch pools so that the fleet can choose
+    Spot fleet stops launching instances when reaching capacity or max costs
+
+Lowestprice: from the pool with the lowest price
+    Diversified: distributed across all pools (great for availability)
+    Capacity optimized: po0ol with the optimal capacity for the number of instances
+    Pricecapacityoptimized: pools with the highest capacity available, then select the pool with the lowest price (recommended)
+
+---------------------------
+Private vs Public IP vs Elastic IP
+
+Networking has two sorts of IPs. IPv4 and IPv6
+
+Ipv4 is the most common format used online
+Ipv6 is newer and solves problems for the IoT
+Ipv4 allows for 3.7 billion different addresses in the public space
+
+Public ip
+    Public ip means the machine can be identified on the internet
+    Must be unique across the whole web
+    Can be geo-located easily
+
+Private IP
+    Private ip means the machine can only be identified on a private network only
+    The ip must be unique across the private network
+    But two different private networks cna have the same ip
+    Machines connect to WWW using an internet gateway
+
+Elastic IP
+    When you stop and then start an EC2 instance, it can change its public IP
+    If you need to have a fixed public ip for your instance, you need an Elastic IP
+    An elastic ip is a public ipv4 ip you own as long as you dont delete it
+    With an elastic ip address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account
+    Try to avoid
+    5 elastic ips in AWS account
+
+When we are doing SSH into our EC2
+    We cant use a private ip
+    We can only use public ip
+
