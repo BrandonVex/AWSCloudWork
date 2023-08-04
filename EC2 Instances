@@ -1,1 +1,57 @@
+EC2 Sizing & Config Options
 
+Operation Systems
+Linux
+Windows
+MacOS
+How much computer power & cores (CPU)
+How much random-access memory (RAM)
+How much storage space
+    Network-attached (EBS&EFS)
+    Hardware (EC2 instance store)
+Network card: Speed of the card, Public IP address
+Firewall Rules: Security Group
+Bootstrap script (Configure at first launch): EC2 User Data
+
+------------------
+EC2 INSTANCE TYPES
+
+Seven different types of instances
+
+General purpose
+    Great for a diversity of workloads such as web servers or code repositories
+    Balance between
+      Compute
+      Memory
+      Networking
+    T2.micro being used in general
+Compute-optimized
+    Great for compute-intensive tasks that require high performance processors
+    Batch processing workloads
+    Media transcoding
+    High-performance web servers
+    High performance computing (HPC)
+    Scientific modeling & machine learning
+    Dedicated gaming servers
+      C FAMILY
+Memory optimized
+    Fast performance for workload that process large data sets in memory
+    Use cases:
+    High performance, relational/non-relational database
+    Distributed web scale cache stores
+    In-memory database optimized for BI (business intelligence) 
+    Applications performing real-time processing of big unstructured data
+      R family (x1, high memory, z1)
+Accelerated computing
+
+Storage optimized
+    Great for storage intensive tasks that require high sequential read and write access to large data sets on local storage
+    Use cases
+      High frequency online transaction processing systems
+      Relations and NoSQL databases
+      Cache for in memory databases
+      Data warehousing applications
+      Distributed file systems
+        I, D or H1 family
+Instance features
+Measuring instance performance
