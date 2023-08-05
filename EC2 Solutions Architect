@@ -33,8 +33,8 @@ Sometimes you want control over the ec2 instance placement strategy
 That strategy can be defined using placement groups
 When you create a placement group you have three strategies for you
 
-  Cluster - clusters insatances into a low-latency group in a single AZ  
-  Spread-  Spreads instances across underlying hardware (max 7 instances perr group per az) - critical applications
+  Cluster - clusters instances into a low-latency group in a single AZ  
+  Spread-  Spreads instances across underlying hardware (max 7 instances per group per az) - critical applications
   Partition - spreads instances across many different partitions (which rely on different sets of racks) within an AZ.  Scales to 100s of EC2 instances per group (hadoop, cassandra, kafka)
 
 Partition = spread with isolation of faliures
@@ -44,24 +44,24 @@ Pros : Great network (10 gbps bandwidth between instances)
 cons : if the rack fails, all instances will fail at the same time (MAJOR RISK)
 Use case:  
   Big data job that needs to be completed fast
-  Appliucation that needs extremely low latency and high network throughput
+  Application that needs extremely low latency and high network throughput
 
 Spread = all ec2 instances are located on different hardware in different az's
 Pros:
   Can span across multiple AZ's
   Reduced risk in failure
-  EC2 instrances are on different physical hardware
+  EC2 instances are on different physical hardware
 Cons:
   Limited to 7 insatnces per AZ per placement group
 Use case:
-  Application that needs to maximize high avaliability
+  Application that needs to maximize high availability
   Critical applications where each instance must be isolated from failure from each other
 
 Partition = Instances spread across partitions in multiple AZ's (up to 7 partitions) Each partition you can have multiple instances
 each partition =  a rack - UP to 7 partitions per AZ (these can span across multiple AZ's in the same region (up to 100s of EC2 instances)
 Pros: 
   The instances in a partition do not share the same racks with the instances in the other partitions
-  a partition faliure ccan affect many EC2 but wont affect other partitions
+  a partition failure can affect many EC2 but wont affect other partitions
   ec2 instances get access to the partition information as metadata
 Use cases:
   HDFS
@@ -80,13 +80,121 @@ Select placement strategy
   Cluster
   Spread
   Partition
-    When selecting Cluser you dont need to chose anytthing
+    When selecting Cluster, you dont need to chose anything
     When selecting spread, you need to select rack or other
     When selecting partition you have to select the number of partitions
 Launch instances
-(Underadvanced details, select placement group for the new EC2 isntance ou have made)
+(Underadvanced details, select placement group for the new EC2 isntance you have made)
 
 -----------------------------------------------
+
+Elastic Network Interface (ENI)
+
+The logical component in a VPC that represents a VIRTUAL NETWORK CARD
+
+Each ENI can have the following attributes:
+  Primary private IPv4, one or more secondary IPv4
+  One elastic IP (ipv4) per private IPv4
+  One Public IPv4
+  One or more security groups
+  A MAC address
+
+You can create ENI independently and attach them on the fly (move them) on EC2 instances for failover.
+Bound to a specific AZ
+
+
+Where to find ENI
+
+Launch 2 instances (Any)
+Follow create EC2 steps 
+Select instances
+Select Networking
+Find network interfaces
+
+How to create an ENI
+
+Select network interfaces on the left side
+Create new network interface
+Description (optional)
+Select subnet (AZ)
+Select private ipv4
+  Auto assign
+  Custom
+Attach security group
+Create ENI
+Actions
+Attach
+Select instance
+attach
+
+Move an ENI 
+
+Select the ENI
+Actions
+Detach
+  Force detach
+Actions
+attach 
+Chose instance
+
+If you terminate instances, your ENI's that you created manually will stay, but the ones attached to your INSTANCES will be deleted.
+---------------------------------
+
+EC2 Hibernate
+
+We know we can stop, terminate instances
+  Stop - the data on disk (EBS) is kept intact in the next start
+  terminate - any EBS volumes will be destroyed and lost.
+
+On start the following happens:
+  First start the OS boots and the EC2 user data scrips is ran
+  Following starts the OS boots up
+  Then you application starts, caches get warmed up, and that can take time
+
+To hibernate instances
+  The in memory RAM state is preserved
+  The instance boot up in much faster! (the OS is not stopped or restarted)
+  Under the hood: the ram state is written to a file in the root EBS volume
+  The root EBS volume must be encrypted
+
+Use cases:
+  Long running processes
+  Saving the RAM state
+  Services that take time to initialize that you want up fast
+
+Supported families - c3,cc4,c5,i3,m3,m4,r3,r4,t2,t3,,,,
+Instance ram size - must be less than 150gb
+Instance size - not supported for bare metal instances
+AMI - linux 2, linux ami, ubunti, RHEL, CentOS, windows....
+Root volume - must be EBS, encrypted, not instance store, and large
+Available for ON-demand, reserves, and spot instances
+Instances cannot be hibernated more than 60 days
+
+
+
+Create instance
+Select normal stuff
+Advanced detail for storage volumes
+  Encrypt it
+Advanced details
+  Enable hibernate
+Launch
+Connect
+Instance state
+Hibernate instance
+EC2 Instance connect
+
+When in instance connect
+Run command uptime to view how long the instance has been on since last restart - hibernate will not restart uptime # (never been stopped from a computer perspective)
+
+
+
+
+
+
+
+
+
 
 
 
