@@ -1,0 +1,95 @@
+Private IPV4 is linked to a private network so you cannot SSH into you AWS EC2 without being on the same private network, you need a public network
+
+Every time to stop and start an Instance, your IPV4 will change
+
+To make sure your IP doesnt change after every start, you want an elastic IP
+
+STEP BY STEP
+
+Select Elastic IP adressed
+Allocate elastic IP address
+Select ELASTIC IP setting
+  Amazon
+  public ipv4
+  customer owned ipv4
+Tags (optional)
+Create
+---------------------------------
+Link to a specific instances
+  Click elastic IP
+  Associate elastic IP address
+Select resource
+  INstance
+  network interface
+Select instance
+select private IP
+Confirm
+----------------
+
+
+Placement groups
+
+Sometimes you want control over the ec2 instance placement strategy
+That strategy can be defined using placement groups
+When you create a placement group you have three strategies for you
+
+  Cluster - clusters insatances into a low-latency group in a single AZ  
+  Spread-  Spreads instances across underlying hardware (max 7 instances perr group per az) - critical applications
+  Partition - spreads instances across many different partitions (which rely on different sets of racks) within an AZ.  Scales to 100s of EC2 instances per group (hadoop, cassandra, kafka)
+
+Partition = spread with isolation of faliures
+
+Cluster = Same rack - same AZ
+Pros : Great network (10 gbps bandwidth between instances)
+cons : if the rack fails, all instances will fail at the same time (MAJOR RISK)
+Use case:  
+  Big data job that needs to be completed fast
+  Appliucation that needs extremely low latency and high network throughput
+
+Spread = all ec2 instances are located on different hardware in different az's
+Pros:
+  Can span across multiple AZ's
+  Reduced risk in failure
+  EC2 instrances are on different physical hardware
+Cons:
+  Limited to 7 insatnces per AZ per placement group
+Use case:
+  Application that needs to maximize high avaliability
+  Critical applications where each instance must be isolated from failure from each other
+
+Partition = Instances spread across partitions in multiple AZ's (up to 7 partitions) Each partition you can have multiple instances
+each partition =  a rack - UP to 7 partitions per AZ (these can span across multiple AZ's in the same region (up to 100s of EC2 instances)
+Pros: 
+  The instances in a partition do not share the same racks with the instances in the other partitions
+  a partition faliure ccan affect many EC2 but wont affect other partitions
+  ec2 instances get access to the partition information as metadata
+Use cases:
+  HDFS
+  HBASE
+  Cassandra
+  Kafka
+
+  --------
+
+Hands on
+
+Select placement group
+Create placement group
+Give name
+Select placement strategy
+  Cluster
+  Spread
+  Partition
+    When selecting Cluser you dont need to chose anytthing
+    When selecting spread, you need to select rack or other
+    When selecting partition you have to select the number of partitions
+Launch instances
+(Underadvanced details, select placement group for the new EC2 isntance ou have made)
+
+-----------------------------------------------
+
+
+
+
+
+
