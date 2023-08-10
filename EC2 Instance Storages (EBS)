@@ -1,0 +1,160 @@
+EBS Overview
+
+What's an EBS Volume?
+
+An EBS (elastic block store) volume is a network drive you can attach to your instances while they run.
+it allows your instances to persist data, even after the ec2 is terminated
+they can only be mounted to one instance at a time (at the ccp level)
+they are bound to a specific ability zone!!
+
+Analogy : network usb stick
+free tier: 30gb of free ebs storage of type general purpose (SSD) or magnetic per month
+
+-----------------------
+
+EBS VOLUME
+
+its a network drive (not physical)
+  it uses the network to communicate the instance, which means there might be a bit of latency
+  it can be detached from an ec2 instance and attached to another one quickly
+
+its locked to an availability zone
+  an ebs volume in us-east-1 A cannot be attached to us-east-1 B
+  to move a volume across, you first need to snapshot it
+
+Have a provisioned capacity (size in GB's, and IOP) in advance - define ebs volume to perform
+  you get billed for all the provisioned capacity
+  you can increase the capacity of the drive over time
+
+----------------------
+
+EBS - Delete on termination attribute
+
+controls the ebs behavior when an ec2 instance terminates
+  Default - ticked for root volume
+  other ebs volume is not deletes
+this can be controlled by the AWS console
+use case: preserve root volume when instance is terminated
+
+-------------------------
+
+EBS Hands-on
+
+Select Volumes
+Create volume
+Select volume type
+  gp2
+  gp3
+  io1
+  io2
+  sc1
+  st1
+  standard
+select AZ zone (same as instance)
+Create volume
+
+-----------------
+
+To attach (volume)
+Select volume
+Action
+Attach volume
+Select instance
+Attach volume
+
+---------------
+
+(This shows the volume)
+Click instance
+Storage tab
+Volume interface
+
+
+When you launch an instance, and you advance storage - you can view if "Delete if termination" is on and when you delete instance, the EBS volume gets deleted if the EBS volume is attached while termination
+
+------------------------------
+EBS Snapshots
+
+Make a backup snapshot of your EBS volume at a point in time
+not necessary to detach volume to do snapshot, but recommended
+can copy snapshots across az or region
+
+Basically to transfer ebs volume to take a snapshot on US-EAST-1A and restore it on US-EAST-1B
+
+----------------------
+
+EBS snapshots features
+
+EBS snapshot archive
+  move a snapshot to an archive tier that is 75% cheaper
+  takes withing 24 to 72 hours for restoring an archive 
+
+Recycle Bin for EBS snapshots
+  Setup rules to retain deleted snapshot so you can recover them after an accidental deletion
+  Specify retention fro 1 day to 1 year
+
+Fast Snapshot restore
+  Force Full initialization of snapshot to have no latency on first use (costs a lot of $$$)
+
+----------------------
+
+EBS Snapshot hands-on
+
+Make a snapshot
+Select Volume
+Actions
+Create Snapshot
+Make description
+
+(Select snapshots)
+
+Select snapshot
+Copy snapshot
+Select region
+
+------------------------
+
+Create a volume from snapshot
+
+Select snapshot
+Actions
+Create new volume from snapshot
+Sel;ect volume type
+Select size
+Select AZ
+Create Volume
+
+----------
+
+Make a recycle bin
+
+Select snapshot
+Click recycle bin
+Retention rule name
+Select resource type
+select  apply to all resources (optional)
+Select retention period
+Select rule lock setting
+  Locked
+  Unlocked (common)
+Create recycle bin
+
+-----------------
+
+How to recover from recycle bin
+
+If deletion
+Open recycle bin
+Select volume/snapshot
+Recover
+
+
+
+
+
+  
+
+
+
+
+
