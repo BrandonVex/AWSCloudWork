@@ -1,0 +1,43 @@
+EBS Overview
+
+What's an EBS Volume?
+
+An EBS (elastic block store) volume is a network drive you can attach to your instances while they run.
+it allows your instances to persist data, even after the ec2 is terminated
+they can only be mounted to one instance at a time (at the ccp level)
+they are bound to a specific ability zone!!
+
+Analogy : network usb stick
+free tier: 30gb of free ebs storage of type general purpose (SSD) or magnetic per month
+
+-----------------------
+
+EBS VOLUME
+
+its a network drive (not physical)
+  it uses the network to communicate the instance, which means there might be a bit of latency
+  it can be detached from an ec2 instance and attached to another one quickly
+
+its locked to an availability zone
+  an ebs volume in us-east-1 A cannot be attached to us-east-1 B
+  to move a volume across, you first need to snapshot it
+
+Have a provisioned capacity (size in GB's, and IOP) in advance - define ebs volume to perform
+  you get billed for all the provisioned capacity
+  you can increase the capacity of the drive over time
+
+----------------------
+
+EBS - Delete on termination attribute
+
+controls the ebs behavior when an ec2 instance terminates
+  Default - ticked for root volume
+  other ebs volume is not deletes
+this can be controlled by the AWS console
+use case: preserve root volume when instance is terminated
+
+
+EBS Hands-on
+
+
+
