@@ -26,3 +26,49 @@ US-EAST-1A Create instance into AMI than launch from AMI to US-EAST-1B instance
 -------------------
 
 AMI hands-on
+
+Create instance
+Select your instance settings
+select a security group
+Advanced options
+(In user data)
+    #!/bin/bash
+    # Use this for your user data
+    # install httpd (linux 2 version)
+    yum update -y
+    yum install -y httpd
+    systemctl start httpd
+    systemctl enable hhtpd
+
+Launch instance
+
+---------------------------------------------------
+
+Create AMI
+
+Select instance
+Create image
+Image name
+create image
+
+------------
+
+EC2 WITH YOUR AMI
+
+Create EC2
+Select Name
+Select (My ami's)
+Select AMI
+Select security group
+(in user data)
+    #!/bin/bash
+    # Use this for your user data
+    # install httpd (linux 2 version)
+    echo "<h1>Hello World from $(hostname -f)</h1> > /var/www/html/index.html
+
+Launch instance    
+
+--- With the ami we dont need to install anything as the AMI already ran the yum/systemctl commands
+You can add loads of software to package as AMI and you will save so much time
+
+
