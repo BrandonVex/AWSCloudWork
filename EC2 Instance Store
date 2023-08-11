@@ -1,0 +1,15 @@
+EC2 Instance store
+
+EBS volumes are network drive with good but "limited" performance
+if you need a high-performance hardware disk, use EC2 instance store
+  (name of the hardware attached to the server)
+
+
+Better I/O performance
+EC2 Instance store lose their storage if they're stopped (ephemeral)
+Good for buffer / cache / scratch data / temporary content 
+Risk of data loss if hardware fails
+Make sure to backup data
+
+This is meant for short term 
+
