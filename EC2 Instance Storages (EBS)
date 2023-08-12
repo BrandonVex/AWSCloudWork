@@ -205,6 +205,38 @@ Hard Disk Drives (HDD)
     Scenarios where lowest cost is important
     max throughput 250 MiB/s - max IOPS 250
 
+-----------------------------
+
+EBS Muilti-attach - io1/io2 family
+
+attach th same EBS volume to multiple EC2 instances in the same AZ
+
+io2 volume with multi attach than this volume can be attached to multiple instances at the same time
+
+Each instance has full read and write permissions to the high performance volume
+
+Use cases:
+  achieve higher application availability in clustered linux applications
+  applications must manage concurrent write operations
+Up to 16 EC2 instances at a time
+Must use a file system that is cluster-aware to make it work
+
+------------------------------
+
+EBS Encryption
+
+When you create an encrypted EBS volume, you get the following:
+  data at rest is encrypted inside the volume
+  all the data in flight moving between the instance and the volume is encrypted
+  all snapshots are encrypted
+  all volumes created from the snapshot
+Encryption and decryption are handles transparently (you dont need to do anything)
+Encryption has minimal impact on latency (use)
+EBS encryption leverages keys from KMS (AES-256)
+Copying an unencrypted snapshot allows encryption
+Snapshots of encrypted volumes are encrypted
+
+
 
 
     
