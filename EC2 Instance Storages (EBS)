@@ -148,7 +148,66 @@ Open recycle bin
 Select volume/snapshot
 Recover
 
+------------
 
+EBS Volume types
+
+Ebs volumes come in 6 types
+  gp2/gp3 (SSD) general purpose SSD volume that balances price and performance for a wide variety of workloads
+  io1/io2 (ssd) higherst-performance SSD volume for mission-critical low-latency or high-trhoughput workloads
+  st1 (HDD) low cost HDD volume designed for frequently accessed throughput-intensive workloads
+  sc1 (HDD) lowest cost HDD volume designed for less frequently accessed workloads
+
+How do you define an ebs volume?
+
+Ebs volumes are characterized in Size | Throughput | IOPS (I/O Ops per second)
+When in doubt, always consult the AWS documentation - its good!
+only gp2/gp3 and io1/io2 can be used as boot volumes
+
+-----------
+
+EBS VOLUME TYPE USE CASES
+
+General purpose SSD
+  Cost effective storage, low latency
+  system boot volumes, virtual desktops, development and test environments
+  1 GiB - 16 TiB of volume
+  gp3: Newest
+    baseline of 3,000 IOPS and throughput of 125 MiB/s
+    Can increase IOPS up to 16,000 and throughput up to 1000 MiB/s independently 
+  gp2: older 
+    small gp2 volumes that can burst IOPS to 3,000
+    Size of the volume and IOPS are linked, max IOPS is 16,000
+    3 IOPS per GB, means at 5,334 GB we are at max IOPS
+      gp2/gp3 = COST EFFECTIVE STORAGE/LATENCY
+
+Provision IOPS (PIOPS) SSD
+  Critical business applications with sustained IOPS performance
+  or applications that need more than 16,000 IOPS
+  Great for databases workloads (sensitive to storage perf and consistently)
+  io1/io2 (4GiB - 16TiB)
+    Max PIOPS: 64,000 for Nitro EC2 instances and 32,000 for others                     Nitro instaces = access to higher levels of IOPS
+    can increase PIOPS independently from storage size
+    io2 have more durability and more IOPS per GiB (at the same price as io1)
+  io2 Block express (4GiB - 64TiB)
+    Sub-millisecond latency
+    Max PIOPS 256,000 with and IOPS:GiB ratio for 1,000:1
+  Supports EBS multi-attach
+
+Hard Disk Drives (HDD)
+  Cannot be a boot volume
+  125 GiB to 16 TiB
+  Throughput optimized HDD (st1)
+    Big data, data warehouses, log processing
+    max throughput 500 MiB/s - max IOPS 500
+  Cold HDD (sc1)
+    for data that is infrequently accessed
+    Scenarios where lowest cost is important
+    max throughput 250 MiB/s - max IOPS 250
+
+
+
+    
 
 
 
