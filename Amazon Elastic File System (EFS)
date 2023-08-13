@@ -1,0 +1,49 @@
+AMAZON EFS
+
+Manages NSF (network file system) that can be mounted on many EC2 instances
+EFS works with EC2 instances in multi-az
+highly avaliable, scalable, expensive (3xgp2), pay per use
+
+Use cases: Content management, web serving, data sharing, wordpress
+uses NFSv4.1 protocol
+uses security group to control access to EFS
+compatible with linux based ami only
+encryption at rest using KMS
+
+POSIX file system (~linux) that has a standard file API
+File system scales automatically, pay-per-use, no capacity planning
+
+-------------
+
+EFS performance and storage
+
+EFS Scal
+  1000s of concurrent NFS clients, 10GB+ /s throughput
+  grow to pentabyte-scale network file systems, automatically
+Performance Mode
+  General purpose --latency-sensitive use cases
+  max I/O -- higher latency, throughput, highly parallel
+Throughput mode
+  bursting -- 1TB = 50MiB/s + burst of up to 100MiB/s
+  provisioned -- set your throughput regardless of storage size - ex: 1gib/s for 1tb/s
+  elastic -- automatically scales throughput up or down based on your workloads
+    up to 3gib/s for reads and 1gib/s for writes
+    used for unpredictable workloads
+
+--------------
+
+Storage classes
+
+Storage tiers 
+  Standard: for frequently accessed
+  Infrequent access (EFS-IA): cost to retrieve files, lower priuce to store. (Policy)
+
+Availability and durability
+  Standard: multi-az, great for prod
+  one zone: one AZ great for dev, backup enabled by default, compatible with IA
+
+over 90% in cost savings
+
+-------------
+
+
