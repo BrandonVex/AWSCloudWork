@@ -237,6 +237,31 @@ Copying an unencrypted snapshot allows encryption
 Snapshots of encrypted volumes are encrypted
 
 
+Create ebs snap
+encrypt ebs snap (copy)
+create new ebs volume from the snapshot
+now you can attach the encrypted volume to original
+
+-------------------
+
+Hands-on
+
+Action
+Copy snapshot
+select enable encryption
+select KMS key
+Select encrypted snap
+action
+create volume
+
+
+Unecrpyted snapshott
+action
+create volume from snapshot
+enable encryption
+select Key
+create volume
+
 
 
     
