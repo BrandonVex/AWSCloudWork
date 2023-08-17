@@ -262,6 +262,10 @@ enable encryption
 select Key
 create volume
 
+---------
+
+You can NOT use AMI to launch ec2 instances in another region
+
 
 
     
