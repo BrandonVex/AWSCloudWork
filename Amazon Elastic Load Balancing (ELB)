@@ -1,2 +1,60 @@
-Scalability & High Availability
+What is load balancing?
+A load balancer is a server that forwards traffic to multiple servers downstream.
+
+Why use a load balancer?
+Spread load across multiple downstream instances
+expose a single point of access (DNS) to your application
+seamlessly handle failures of downsteam instances
+do regular health checks to your instances
+provide SSL termination (HTTPS) for your websites
+enforce stickiness with cookies
+high availability across zones
+seperate public traffic from private network
+
+----------------------------------------------------
+
+Elastic Load balancer is a managed load balancer
+  Aws guarantees that it will be working
+  AWS takes care of upgrades, maintenance, high availability
+  AWS provides only a few configuration knobs
+It costs less to setup your own load balancer but it will be a lot more effort on your end
+it is integrated with many AWS offerings / services
+  ec2, ec2 auto scaling, amazon ecs
+  AWS Certificate manager (ACM), cloudwatch
+  route 53,  AWS WAF, AWS global accelerator
+
+-------------------------------
+Health checks
+
+Elastic load balancer checks the EC2 instance to make sure the instance can take traffic
+
+Health checks are crucial for load balancers
+they enable the load balance to know if the instance it forward traffic to are available to reply to requests
+the health check is done on a port and a route (/health is common)
+if the response is not 200 (ok) than the instance is unhealthy
+
+Protocol: HTTP
+Port: 4567
+Endpoint: /Health
+
+-------------------------------
+
+
+Types of load balancers
+
+AWS has 4 kinds of managed load balancers
+Classic Load Balancer (v1 - older gen) --- 2009 -- CLB
+  HTTP, HTTPS, TCP, SSL
+Application Load Balancer (v2 - new gen) -- 2016 -- ALB
+  HTTP, HTTPS, WebSocket
+Network Load Balancer (v2 - new gen) -- 2017 -- NLB
+  TCP, TLS, UDP
+Gateway Load Balancer -- 2020 -- GWLB
+  Operates at layer 3 (Network) -- Ip protocol
+
+Always try to use the newer generation load balancers as they provide more features.
+some load balancers can be setup as internal and external ELBS (private/public)
+
+
+-----------------------------------------------------------------
 
