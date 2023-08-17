@@ -17,7 +17,7 @@ File system scales automatically, pay-per-use, no capacity planning
 
 EFS performance and storage
 
-EFS Scal
+EFS Scale
   1000s of concurrent NFS clients, 10GB+ /s throughput
   grow to pentabyte-scale network file systems, automatically
 Performance Mode
@@ -26,7 +26,7 @@ Performance Mode
 Throughput mode
   bursting -- 1TB = 50MiB/s + burst of up to 100MiB/s
   provisioned -- set your throughput regardless of storage size - ex: 1gib/s for 1tb/s
-  elastic -- automatically scales throughput up or down based on your workloads
+  elastic -- automatically scales throughput up or down based on your workload
     up to 3gib/s for reads and 1gib/s for writes
     used for unpredictable workloads
 
@@ -36,7 +36,7 @@ Storage classes
 
 Storage tiers 
   Standard: for frequently accessed
-  Infrequent access (EFS-IA): cost to retrieve files, lower priuce to store. (Policy)
+  Infrequent access (EFS-IA): cost to retrieve files, lower price to store. (Policy)
 
 Availability and durability
   Standard: multi-az, great for prod
@@ -45,5 +45,83 @@ Availability and durability
 over 90% in cost savings
 
 -------------
+
+EFS Hands On
+
+EFS
+Create file system
+Select VPC
+Customize
+Availability 
+  Region = standard
+  One zone
+Automated backups
+Lifecycle management (Important!! Cost savings)
+Select transition tier
+  IA (days)
+  out of IA (Time)
+Performance mode
+  General Purpose
+  max I/O
+Throughput mode
+  Bursting
+  Provisioned
+Encryption
+Next
+(Network Access Settings)
+Select VPC
+Mount targets
+Select the following:
+  AZ
+  Subnet ID
+  Security Groups (create a new security group for this)
+    (or remove)
+Next
+(File system Policy, optional)
+Next
+Review and create
+create
+
+-------------------------------
+
+How to mount the EFS on an instance
+
+Create an Instance however you feel, and than under "configure storage," select "edit" file system.  (you will have to select a subnet)
+Select EFS and make sure to add a shared file system and select your EFS you made. (AUTOMATE EVERYTHING)
+
+
+--------------------
+
+EFF vs EBS
+
+EBS
+
+Ebs volumes are attached to one instance at a time (except multi-attach with io1/io2)
+  Locked at the AZ level
+  gp2: IO increases if the disk size increases
+  io1: can increase IO independently
+
+To migrate an EBS volume across AZ
+  take a snapshot
+  restore the snapshot to another AZ
+  EBS backups use IO and you shouldnt run them while your application is handling alot of traffic
+
+Root EBS volumes of instances get terminated by default if the EC2 instance gets terminated (you can disable that)
+
+EFS
+
+Mounting 100s of instances across AZ's
+EFS Share website files (Wordpress)
+Only for Linux instances (POSIX)
+EFS has a higher price point than EBS
+Can leverage EFS-IA for cost savings
+Remember EFS  vs EBS vs Instance store
+
+
+
+
+
+
+
 
 
