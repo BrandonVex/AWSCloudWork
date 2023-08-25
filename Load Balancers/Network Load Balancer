@@ -1,1 +1,40 @@
 
+Network Load Balancer (v2)
+
+Network load balancer is a layer 4 balancer
+  Allows you to:
+  Fowards TCP & UDP Traffic to your instances
+  Handle millions of requests per second
+  less latency ~ 100ms (ALB = 400ms)
+
+NLB has one static IP per AZ, and supports assigning Elastic IP
+Helpful for whitelisting specific IPS
+
+NLB are used for extreme performance, TCP or UDP traffic
+Not included in the AWS free tier
+
+----------------------------
+
+NLB Target groups
+
+EC2 instance (NLB Can use these)
+IP addresses (Must be private)
+Application Load Balancer - This can be in front of the ALB
+   WHY? You can get the rules from the ALB but the security from the NLB
+Health checks support the TCP, HTTP, HTTPS protocols
+
+--------------------------------------------------
+
+Hands-On
+
+Create load Balancer
+Select Network Load Balancer
+Name
+Select scheme
+Select IP Address type
+  IPv4
+Network Mappings (Specified AZ's)
+Choose IPv4 for all AZ's (elastic IP)
+Create target group for our NLB
+  Select the target group
+Create Load balancer
