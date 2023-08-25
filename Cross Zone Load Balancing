@@ -1,0 +1,34 @@
+WITH CZLB
+
+AZ 1          AZ 2
+ALB           ALB
+2 EC2         8 EC2
+50%           50%  (this splits into 10% for ALL INSTANCES)
+
+With cross zone load balancing each load balancer instance distributes evenly across all registered instances in all AZ's
+Basically its an ALB for ALL AZ'S 
+
+---------------------------------------
+WITHOUT CZLB
+
+AZ 1          AZ 2
+ALB           ALB
+2 EC2         8 EC2
+50%           50%  
+(this than splits 25% in AZ1 to both instances while AZ is split 6.25% for 8 instances (50%))
+
+Without cross zone balancing requests are distributed in the instances of the node of the ELB
+Instead of 10% in 10 ec2 instances it will be 
+Some instances will recieve more traffic
+
+---------------------------
+
+Application Load Balancer
+  Enabled by default (can be disabled at the target group level)
+  No chargest for inter AZ data
+
+Network Load Balancer & Gateway Load Balancer
+  Disabled by Default
+  You pay charges ($) for inter AZ data if enabled
+
+--------------------------------------------------
