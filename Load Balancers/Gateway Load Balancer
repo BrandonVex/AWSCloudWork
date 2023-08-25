@@ -1,1 +1,18 @@
+Gateway Load Balancer
 
+Deploy, scale and manage a fleet of 3rd party network virtual appliances in AWS
+
+Example: Firewalls, Intrusion Detection and Prevention Systems, Deep packety inspection systems, Payload Manipulations.....
+
+Basically a secondary security load balancer
+From user->glb->target group->glb->Application
+
+Operates at Layer 3 Network layer for IP packets
+Combines the following functions
+  Transparent Network Gateway - single entry/exit for all traffic
+  Load balancer - distributes traffic to your virtual machines
+Uses the GENEVE protocol on port 6081
+
+Target groups
+  EC2 instances
+  Private IP addresses
