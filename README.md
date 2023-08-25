@@ -1,2 +1,2 @@
 # AWSCloudWork
-This is my project/hands-on work with AWS
+Im keeping my notes here
