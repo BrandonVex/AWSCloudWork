@@ -1,0 +1,16 @@
+Select load balancer
+Add listener
+Select protocol (https : 443)
+Select target group to foward too
+Set secure listener settings
+  Select Policy (default normally)
+  Select SSL/TLS cert
+    From ACM
+    From IAM
+    Import
+      Private key
+      Certificate body
+Create
+  (same for NLB)
+  
+  
