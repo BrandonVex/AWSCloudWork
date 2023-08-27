@@ -1,0 +1,28 @@
+Feature Naming
+  Connection Draining -- FOR CLB
+  Deregistration Delay -- For ALB & NLB
+
+It gives the Time to complete "in flight requests" while the instance is de-registering or unhealthy 
+Stops sending new requests to the ec2 instance which is de-registering 
+      (basically this makes sure traffic wont get caught in the turning off faze)
+
+Between 1 to 3600 seconds of drain time (default 300)
+can be disabled
+Set to a low value if requests are short
+Long requests should be set higher
+
+--------------------------------------------------
+
+Waiting for existing connections to complete
+
+                   -> Draining EC2
+
+Users ------- ELB     EC2
+
+                      EC2
+
+-----------------------------------------------
+
+To complete their existing connection and requests and once done, everything will be shutodnw
+the ELB will be smart enough to know the draining instance should not recieve anymore traffic so it will send traffic somewhere else
+
