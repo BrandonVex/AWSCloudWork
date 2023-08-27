@@ -3,8 +3,8 @@ What is auto scaling group?
   In the cloud, you can create and get rid of extra servers very quickly with ASG
 
 the goal of an auto scaling group is to
-  Scale out to match an increased load
-  Scale in to match a decreased load
+  Scale out to match an increased load(increase)
+  Scale in to match a decreased load (decrease)
   Ensure we have a minimum and a maximum of EC2 instances running at anytime
   Automatically register new instances to a load balancer
   Re-create an EC2 instance in case of a previous one is terminated (unhealthy)
@@ -47,6 +47,9 @@ It is possible to scale an ASG based on your CloudWatch alarms - Once alarm is t
 An alarm monitors a metric (Cpu, custom metric)
 Metrics such as CPU are computed for the overall ASG instances
 
+  Based on the alarm
+    We can create scale-out policies (increase)
+    we can create scale-in policies (decrease)
 
 
 
