@@ -1,1 +1,76 @@
 SSL TLS Basics
+
+An ssl certificate allows traffic between your clients and your load balancer to be encrypted in transit (in-flight encryption)
+
+SLL refers to "Secure sockets layer"; used to encrypt connections
+TLS refers to "Transport layer security; which is the newer "SSL"
+Nowadays, TLS Certificate are mainly used, but people still refer as SSL
+(TLS CERTIFICATE)
+
+Public ssl certificates are issued by Certificate Authorities (CA)
+Comodo, Symantec, GoDaddy, GlobalSign, etc...
+
+attaching the SSL certificate to the load balancer, it encrypts the connection between the client and the load balancer
+
+SSL Certificates have an expiration date you set and must be renewed
+
+---------------------------------------
+
+User ----> HTTPS (encrypted) ---> Load balancer
+
+The load balancer uses an x.509 certificate (SSL/TLS)
+You can manage certificates using ACM (AWS certificate manager)
+You can create and upload your own certificates alternatively 
+HTTPS Listener: 
+  specify default certificate
+  you can add an optional list of certs to support multiple domains
+  Clients can use SNI (server name indication) to specify the hostname they reach
+  Ability to specify a security policy to older versions of SSL/TLS (legacy)
+
+--------------------------------------------
+
+SNI - Server name indication
+
+  SNI solves the problem of loading multiple SSL certificates onto one web server (to server multiple websites)
+
+  It's a "newer" protocol and requires the client to indicate the hostname of the target server in the initial SSL handshake (makes sure same SSL is used every time for specific traffic)
+
+  The server will then find the correct certificate or return the default one
+
+Note:
+
+  Only works for ALB & NLB (newer generations) and cloudfront
+  Does not work for CLB (older gen)
+
+-------------------------------------------
+
+Target group for www.mycorp.com ------------------------ 
+
+Target group for domain1.example.com ----------------------------
+
+
+ALB - 2 certificates
+  1. domain1.example.com
+  2. www.mycorp.com
+    These correspond with each target group
+
+The client connects to ALB and wants www.mycorp.com and then the ALB used certificate #2 and encrypt the traffic and then redirects to the right target group
+
+-------------------------------------------
+
+Classic Load Balancer
+  Supports 1 ssl certificate
+  Must use multiple clb for multiple hostname
+
+Application Load Balancer
+  Supports multiple listeners with multiple SSL certs
+  uses server name indication to work
+
+Network Load balancer 
+  Supports multiple listeners with multiple SSL certs
+  uses server name indication to work
+
+
+
+
+
