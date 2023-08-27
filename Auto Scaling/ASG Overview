@@ -1,0 +1,52 @@
+What is auto scaling group?
+  When we deploy an EC2, in real life the load on your website can change drastically
+  In the cloud, you can create and get rid of extra servers very quickly with ASG
+
+the goal of an auto scaling group is to
+  Scale out to match an increased load
+  Scale in to match a decreased load
+  Ensure we have a minimum and a maximum of EC2 instances running at anytime
+  Automatically register new instances to a load balancer
+  Re-create an EC2 instance in case of a previous one is terminated (unhealthy)
+
+ASG are free!!! you pay for the EC2 instances
+
+---------------------------------------------
+
+Minimum capacity (2)
+Desired (4)
+Maximum (8) (only need for extra traffic)
+Scale out ^ (4)
+
+ELB healthchecks and send information to Auto scaling group incase they need to restore an unhealthy EC2 instance
+
+---------------------------
+
+Attrributes
+
+A launch template contains information on how to launch EC2 instances within your ASG
+
+Launch template needs:
+  AMI + Instance type
+  EC2 User data
+  EBS Volumes
+  Security groups
+  SSH key pair
+  IAM Roles for your EC2 instances
+  Network + Subnets information
+  Load balancer information
+  More!
+MIN/MAX/INITIAL Capacity
+Scaling Policies
+
+--------------------------------
+
+Cloudwatch alarms and scaling
+
+It is possible to scale an ASG based on your CloudWatch alarms - Once alarm is triggered it will send information to the ASG to add more EC2 instances
+An alarm monitors a metric (Cpu, custom metric)
+Metrics such as CPU are computed for the overall ASG instances
+
+
+
+
