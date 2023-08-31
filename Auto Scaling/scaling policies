@@ -1,1 +1,38 @@
+dynamic scaling policies
+  target tracking scaling
+    most simple and easy to setup
+    example: i want an average ASG cpu to stay around a specific %
+
+  simple / step scaling
+    when a cloud watch alarm goes off then add units (example: CPU > 70%)
+    when a cloudwatch alarm goes off then remove units (example : CPU <30%)
+
+  scheduled actions
+    anticipate a scaling based on known usage patterns
+    example : increase the min capacity to 10 at 5pm on fridays (known)
+
+predictive scaling (new)
+  predictive scaling: continuously forecast load and scheduled scanning ahead
+    This scaling collect data from previous days/months to make a suggested forecast on when auto scaling needs to occur
+    basically this makes a predictive forecast on when to use the ASG between load and capacity
+      this is machine learning!
+
+-----------------
+
+good metrics to scale on
+
+cpuUtilization: average cpu utilization across your instances 
+RequestCountPerTarget: to make sure the number of requests per ec2 instance is stable
+average network in/out: if your application is network bound to reacha threashold to scale by that
+any custom metric (that you push with cloudwatch)
+
+-------------------
+
+scaling cooldown
+
+after a scaling activity happens you are in the cooldown period (default 300 seconds)
+during the cooldown period the asg will not launch or terminate additional instances (this allows metrics to stabilize)
+Advice: use a ready-to-use ami to reduce configuration time in order to be serving request faster and reduce the cooldown period
+    (dynamic scaling up and down)
+    detail monitoring for metrics every minute
 
