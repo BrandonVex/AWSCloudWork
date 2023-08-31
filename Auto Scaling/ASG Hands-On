@@ -1,1 +1,40 @@
+select auto scaling group
+create new
+name
+create launch template
+  name
+  description
+  For template use Amazon Linux 2
+  Select t2.mcrio for instance type
+  key pair - ec2 tutorial (you should have made something like this)
+  skip subnet
+  select security group
+  advanced details
+    user data input
+      #!/bin/bash
+      # use this for your user data script
+      #install httpd linux 2
+      yum update -y
+      yum update -y httpd
+      systemctl start httpd
+      systemctl enable httpd
+      echo "<h1>Hello world! from $(hostname -f)</h1>"> /var/www/httpd/index.html
+    create launch template
+create auto scaling group
 
+Now you can add this template to the ec2 instance you select under "choose template"
+
+with the ec2 instance
+
+configuring advanced options - you can use an asg without an alb but you normally wouldnt
+
+always use health checks for ec2 and elb
+
+------------
+
+
+select asg group size - desired - minimum - maximum (ec2)
+scaling policies - 
+
+
+  
