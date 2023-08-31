@@ -58,3 +58,10 @@ target tracking scaling
 
 make sure to set the min/max
 target value of 40 >< // 
+
+-----------------
+
+installing stress linux 2 
+
+sudo amazon-linux-extras install epel -y
+sudo yum install stress -y
