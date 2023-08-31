@@ -1,1 +1,60 @@
+3 policies
 
+easiest: Scheduled action policy
+Create new policy
+name
+desired capacity
+min
+max
+select recurrence
+time zone
+specific start time 
+
+(predict in advanced!)
+
+---------------
+
+Predictive scaling
+
+create predictive
+name
+select metric
+  cpu utilization
+  network in bytes
+  network out bytes
+  application load balancer
+  custom metric pair
+select target utilization 
+additional settings
+
+-----------------------
+
+dynamic scaling policy
+
+create dynamic scaling policy
+select policy type
+simple scaling
+  name
+  select/make cloudwatch alarm
+  take the action
+    add/remove
+    amount #
+    percent of group
+    300 second wait
+step scaling
+  name
+  select cloudwatch alarm
+  take the action
+    add/remove
+    number # 
+    capcity unites
+    add step
+    300 seconds
+target tracking scaling
+  name
+  mertric type
+  target value
+  create policy
+
+make sure to set the min/max
+target value of 40 >< // 
