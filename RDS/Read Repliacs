@@ -1,0 +1,6 @@
+RDS read replicas for read scalability
+Create up to 15 read replicas
+Within AZ, Cross AZ, or Cross region
+REpliation is ASYNC, so reads are eventually consistent
+Replicas can be promoted to their own DB
+Applications must update the connection string to leverage read replicas
