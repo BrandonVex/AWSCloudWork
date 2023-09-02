@@ -1,0 +1,53 @@
+Create DATABASE
+  Standard
+  Easy create
+Select database ENgine
+  Aurora
+  MySQL ---- using rn
+  MariaDB
+  PostGresSQL
+  ORacle
+  MicrosoftSQL Server
+select edition (if needed)
+select version
+select template
+  Free ---> auto settings
+  Dev/test
+  PRoduction ---> full control
+Availability and durability
+  single -- free tier
+  multi
+  multi cluster
+Identifier
+username
+password
+instance config
+  standard
+  memory optimized
+  burstable classes
+    choose instane
+Storage type
+allocate storage
+storage autoscaling
+maximum storage threshold
+connectivity
+  Dont connect ec2 resource
+    deploy VPC
+      Select SUbnet group
+  Connect ec2 resouce 
+    select instance if clicked yes
+Create a security group
+  New security group
+    additional config
+database authentication
+monitorinig
+additional database configs
+  name
+    dp paramete group
+      backups
+        backup retention period
+          1-35 days
+export logs into cloudwatch
+maintenence window
+deletion protection
+
