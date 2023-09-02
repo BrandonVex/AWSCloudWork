@@ -1,0 +1,39 @@
+Create Database
+Select Aurora (MySQL)
+Select Production Template
+Add username/password
+Select instance type (cluster)
+Create an Aurora Replica
+Skip Connectivity
+Skip IP
+Yes to public
+Make new security group
+Turn off enhance
+Advanced options
+  Create db name
+  select retention period
+  Select cloudwatch logs
+  Backtrack
+Create
+
+-----------------
+
+Other features
+ADD aws region
+add reader
+create cross region read replica
+create clone
+restore
+add replica auto scaling
+
+----
+Add auto scaling policy
+Policy name
+Select average CPU utilization
+Select target value (60)
+Scale in enable
+Min/Max
+  1
+  15
+Add policy
+
