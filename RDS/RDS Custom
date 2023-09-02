@@ -1,0 +1,11 @@
+managed oracle and microsoft SQL server database with OS and database customization
+rds: automates setup, operation, and scaling of database in AWS
+custom: access to the underlying database and OS so you can
+  configure settings
+  install patches
+  enable native features
+  acccess the underlying ec2 instance using ssh and ssm session manager
+De-activate autoimation mode to perform your custimization, better to take a DB snapshot before
+RDS vs RDS Custom
+  RDS will manage the entire database and the OS to be managed by AWS
+  Custom gives full admin access to the underlying OS and the database
