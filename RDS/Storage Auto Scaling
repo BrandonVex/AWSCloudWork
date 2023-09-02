@@ -1,0 +1,11 @@
+Helps you increase storage on your RDS DB instance dynamically
+when RDS detects you are running out of free database storage, it scales automatically
+Avoid manually scaling your database storage
+You have to set a MAximum Storage threshold (max limit for DB storage) - for it doesnt scale infinitly
+Automatically modify storage if
+  Free storage is less than 10% of allocated storage
+  low-storage lasts at least 5 minutes
+  6 hours have passed since last modification
+USeful for applications with unpredictable workloads
+Supports all RDS database engines (mariaDB, mySQL, PostgressSQL, SQL server, oracle)
+                                             
