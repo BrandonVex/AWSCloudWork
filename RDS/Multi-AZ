@@ -1,0 +1,22 @@
+RDS Multi AZ (disaster recovery)
+
+SYNC replication in another AZ (b)
+ONe DNS name - automatic app failover to stanby
+Increases avaliabilty
+Failover in case of loss of AZ, loss of network, instance or storage faliure --- > promoted to master
+No manual intervention in apps
+Not used for scaling as its a replica 
+
+Note: The read replicas can be setup as a multi AZ for disaster recovery
+
+----------> FRom single AZ to MUlti AZ
+
+Zero downtime operation (no need to stop the DB)
+Just click "Modify" for the database and change it to Multi AZ
+Sync REplication than will happen
+
+Following happens internally
+  A snapshot is taken
+  A new DB is restored from the snapshot in a new AZ
+  Synchronization is established between two databases
+  
