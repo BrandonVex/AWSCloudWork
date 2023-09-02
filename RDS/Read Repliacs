@@ -4,3 +4,18 @@ Within AZ, Cross AZ, or Cross region
 REpliation is ASYNC, so reads are eventually consistent
 Replicas can be promoted to their own DB
 Applications must update the connection string to leverage read replicas
+Read replicas are only for reads
+
+----> Use cases
+You have a production database that is taking on normal load
+You want to run a reporting application to run some analytics
+You create a read replica to run the new workload there ---> Async --> reads to reporting application analytics)
+The production Application is unaffected
+Read replicas are used for SELECT (=read) only kind of statements (non INSERT, UPDATE, DELETE)
+
+------> Network cost
+
+IN AWS theres a network cost when data goes from one AZ to another
+FOR RDS read replica within the same region, you dont pay that FEE -- because RDS is a managed service
+If you are using a cross region replica, than you would have to pay a fee
+
