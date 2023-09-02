@@ -1,0 +1,27 @@
+RDS stands for relational database service
+its a managed DB service for DB that uses SQL as a query language
+it allows you to create databases in the cloud that are managed by AWS
+  postgress
+  MySQL
+  MariaDB
+  ORacle
+  Microsoft SQL Server
+  Aurora (AWS propietary server)
+
+--------------
+
+Advantage over using RDS versus deploying DB on EC@
+
+RDS is a managed service
+  automated provisioning, OS patching
+  continous backups and restore to specific timestamp (point in time restore)
+  monitoring dashboards
+  read replicas for improved read performance
+  multi az setup for DR (disaster recovery)
+  maintenanance windows for upgrades
+  scaling capability (vertical and horizontal)
+  storage backed by EBS (gp2 or io1)
+But you cant SSH into your instances!!!!
+
+since this is an AWS managed service we dont have access to the underlying EC2 instance
+
