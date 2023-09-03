@@ -1,1 +1,53 @@
 Aurora Auto Scaling
+---
+Custom Endpoints
+
+---> 2 different type of replicas -- 2 db.r3.large | 2 db.r5.2xlarge
+
+Define a subset of aurora instances as a custom endpoint
+example: run analytic queries on specific replicas
+The reader endpoint is generally not used after defining custom endpoints
+Allows you to query a subset
+
+------------
+
+Serverless
+
+Automated database instantiation and auto-scaling based on actual usage
+Good for infrequent intermittent or unpredictable workloads
+No capacity planning needed
+pay per second can be more cost-effective
+-----------
+
+Aurora multi-master
+
+In case you want continuous write availability for the writer nodes
+every node does R/W vs promoting a read replica as the new master
+---------
+
+Global aurora
+
+Aurora cross region read replicas
+  useful for disaster recovery
+  simple to put in place
+aurora global database (recommended)
+  1 primary region R/W
+  Up to 5 secondary (read only) regions, replication lag is less than 1 second
+  up to 16 read replicas per secondary region
+  Helps for decreasing latency
+  Promoting another region (for disaster recovery) has an RTO of < 1 minute
+Typical cross-region replication takes less than 1 second ---------------------------------------------> HINT
+--------------
+
+Aurora machine learning
+
+Enables you to add ML-based predictions to your applications via SQL
+simple, optimized, and secure integration between aurora and aws ml services
+Supported services
+  AWS Sagemaker (use with any ML model)
+  AWS Comprehend (for sentiment analysis)
+you dont need to have ML experience
+Use cases: fraud detection, ads targeting, sentiment analysis, product recommendations
+
+
+
