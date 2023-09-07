@@ -1,1 +1,38 @@
+RDS Backups
 
+Automated backups
+  daily full backup of the database (during the backup window)
+  transaction logs are backed-up by RDS every 5 minutes
+  => ability to restore to any point in time (from oldest backup to 5 minutes ago)
+  1 to 35 days of retention, set 0 to disable automated backups
+Manual DB Snapshots
+  manually triggered by the user
+  retention of backup for as long as you want
+
+Trick: in a stopped RDS database, you will still pay for storage, if you plan on stopping it for a long time, you should snapshot and restore instead.
+if you need this DB for short time like 2 hours a week, make snapshot
+
+--------
+
+Aurora Backups
+
+automated backups
+  1 to 35 days (cannot be disabled)
+  point-in-time recovery in that timeframe
+Manual DB snapshot
+  manually triggered by the user
+  retention of backup for as long as you want
+
+----------------
+
+Restore options
+
+Restoring a RDS/Aurora backup or a snapshot, creates a new database.
+restoring MySQL RDS database from s3
+  create a backup of your on-premises database
+  store it on amazon S# (object storing)
+  restore the backup file onto a new RDS instance running MySQL
+Restoring MySQL aurora Cluster from S3
+  create a backup of your on premises database using Percona XtraBAckup
+  store the backup file on amazon S3
+  restore the backup file onto a new aurora cluster running MySQL
