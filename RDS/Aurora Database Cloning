@@ -1,0 +1,7 @@
+Create a new Aurora DB cluster from an existing one
+Faster than snapshot&restore
+Usees a COpy-on-Write protocol
+  initially the new DB cluster uses the same data volume as the original DB cluster (fast and efficient - no copying needed)
+  when updates are made to the new DB cluster data, then additional storage is allocated and data is copied to be seperated
+very fast and cost effective
+useful to create a "Staging" database from a production database without impacting the production databas
