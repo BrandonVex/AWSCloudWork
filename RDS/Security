@@ -1,1 +1,12 @@
+RDS & aurora Security
 
+AT rest encryption:
+  database master & replicas encryption using AWS KMS - must be defined at launch time
+  if the master is not encrypted, the read replicas cannot be encrypted
+  to encrypt an un-encrypted database, go Through a DB snapshot & restore as encrypted
+
+In-flight encryption: TLS-ready by default, use the AWS TLS root certificates client-side
+IAM Authentication: IAM roles to connect to your database (instead of pass/username)
+Security Groups: Control Network access to your RDS /aurora DB
+No SSH is available except for RDS Custom
+Audit Logs can be enabled and sent to cloudwatch logs for longer retention
