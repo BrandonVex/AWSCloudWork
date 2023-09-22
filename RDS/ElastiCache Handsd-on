@@ -1,0 +1,43 @@
+ElastiCache
+Create a Cluster
+  Redis (Selected)
+  Memchaced
+Config and create
+Cluster mode
+  Enable
+  Disable (select)
+Cluster info
+  Name
+  Description (optional)
+Location
+  AWS Cloud (select)
+  On premesis
+    Multi-AZ (disable)
+    Auto-Failover (enable)
+Cluster settings
+  Engine Version - 6.2
+  Port - 6379
+  Parameter Groups - Default
+  Node Types - Micro Cache
+  Number of Replicas - 0
+Subnet Group Settings
+  Create new Subnet
+    Name
+    Description (optional)
+    Select VPC
+Next
+Security
+  Encryption at rest (disabled)
+  Encryption in transit (enable)
+  Access Controls
+    Redis Auth 
+      Specify Token (connects to cluster)
+Backup
+  Automatic Backups (disabled)
+Maintenence 
+  Window (No preference)
+  Auto upgrade (enable)
+  Topic
+Logs
+Tags
+Create
