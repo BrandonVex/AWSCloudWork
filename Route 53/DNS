@@ -1,1 +1,21 @@
 What is DNS?
+
+Domain Name System which translates the human-friendly hostnames into the machine IP addresses
+www.google.come ===> 172.217.18.36
+DNS is the backbone on the internet
+DNS uses a hierarchical naming structure
+  .com
+  example.com
+  www.example.com
+  api.example.com
+
+DNS terminologies
+
+Domain Registrar: Amazon Router 53, GoDaddy
+DNS Records: A, AAAA, CNAME, NS
+Zone file: Contains DNS records
+Name Server: Resolves DNS queries (auth/non auth)
+Top Level Domains (TLD): .com .us .in .gov .edu .org
+Second Level Domain (SLD)  amazon.com  google.com
+
+How DNS works?
