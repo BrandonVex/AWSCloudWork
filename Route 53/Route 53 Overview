@@ -1,1 +1,53 @@
 Amazon Route 53
+
+A highly available, scalable, fully managed, and Authoritative DNS
+Authoritative = the customer can update the DNS records
+Route 53 is also a Domain Registrar
+Ability to Check the health of your resources
+The ONLY AWS service which provides 100% availability SLA
+53 is a reference to the traditional DNS port
+
+-------
+
+Records
+
+How you want to route traffic for a domain
+Each record contains:
+  Domain/Subdomain Name
+  Record Type
+  Value
+  Routing Policy
+  TTL - Time
+Route 53 supports the following DNS record type
+(must know) A / AAAA / CNAME / NS
+(Advanced) CAA / DS / MX / NAPTR / PTR / SOA / TXT / SPF / SRV
+
+-----------
+
+Record Types
+
+A - maps a hostname into a IPV4
+AAAA - Maps a hostname to IPV6
+CNAME - maps a hostname to another hostname
+  the target is a domain name which must have an A or AAAA
+  cant create a CNAME record for the top node of a DNS namespace (zone apex)
+NS - name servers for the hosted zone
+  Controls how traffic is routed for a domain
+
+------------------
+
+Hosted Zones
+
+A container for records that define how to route traffic to a domain and subdomains
+
+Public Hosted Zones - contains records that specify how to route traffic on the internet
+  application1.mypublicdomain.com
+Private Hosted Zones - contain records that specify how you route traffic within one or more VPCS
+  application1.company.internal 
+
+You pay 0.50 per month per hosted zone
+
+----------------------
+
+
+
