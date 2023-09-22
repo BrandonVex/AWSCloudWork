@@ -26,4 +26,4 @@ But you cant SSH into your instances!!!!
 since this is an AWS managed service we dont have access to the underlying EC2 instance
 
 Which RDS (NOT Aurora) feature when used does not require you to change the SQL connection string?
-
+Multi-AZ
