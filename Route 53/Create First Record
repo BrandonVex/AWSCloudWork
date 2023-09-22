@@ -1,1 +1,8 @@
-
+Select your DNS/Route 53 zone
+Create Record
+Record Name
+Record Type - A
+Value - 11.22.33.44
+TTL (seconds) - 300
+Routing Policy - Simply
+Create record 
