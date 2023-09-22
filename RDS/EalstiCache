@@ -1,0 +1,40 @@
+The same way RDS is to get managed Relational Detabases....
+ElastiCache is to get managed Redit Or Memcached
+Caches are in-memory databases with really high performance, low latency
+Help reduce load off of databases for read intensive workloads
+Helps make your application stateless
+AWS take care of OS maintenance/ patching, optimizations, setup, configs, monitoring, failure recovery, and backups
+Using ELASTICACHE involves heavy application code changes
+  this is not something youj enable and go
+  you must configure the query prior to elasticache
+
+Solution Architecture - DB Cache
+
+Applications queries ElastiCache, if not avaliable, get from RDS and store in ElastiCache
+Cache HIT automattically gets it from elasticache
+Helps relieve load in RDS
+Cache must have an invalidation strategy to make sure only the most current data is used in here
+
+Solution Architecture - User Session Store
+
+User logs into any of the applications
+The application writes the session data into ElastiCache
+The user hits another instance of our application - than your application can recieve the application cache and restore the cache for uiser doesnt need to relog
+
+Redis vc Memchaced
+
+Redis
+  Multi  Az with auto failover
+  Read Replicas to scale reads and have high availability
+  Data durability using AOF persistence
+  Backup and restore features
+  Supports Sets and Sorted sets - Key Words
+Memchaced
+  Multi-node for partitioning of data (sharding)
+  No high availability (replication)
+  Non persistent
+  No Backup and restore
+  Multi-threaded architecture
+Redis is for high availability/backup while mechached is a pure cache distributed
+
+  
