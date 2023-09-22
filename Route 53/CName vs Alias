@@ -1,1 +1,39 @@
+AWS resources (load balancer, cloudfront) exposes an AWS hostname
+  lb1.1234.us-east-2.2.elb.amazonaws.com and you want myapp.mydomain.com
 
+CNAME
+  Points a hostname to any other hostname (mydomain.com)
+  Only for NON ROOT DOMAINS (aka: something.mydomain.com)
+Alias
+  Points a hostname to an AWS resource (amazonaws.com)
+  Works for ROOT DOMAINS and NON ROOT DOMAIN (aka: mydomain.com)
+  Free of charge
+  Native health check capability
+
+---------------
+
+ALIAS RECORDS
+
+Maps a hostname to an AWS resource
+An extension to DNS functionality
+Automatically recognized changes in the resources IP addresses
+Unlike CNAME, it can be used for the top node of a DNS namespace (Zone Apex)
+Alias Record is always of type A/AAAA for AWS resources (ipv4/6)
+You cant set TTL
+
+--------------------
+
+Alias Records Targets
+
+Elastic Load Balancers
+CloudFront Distributions
+API gateway
+Elastic Beanstalk environments
+S3 Websites
+VPC interface endpoints
+Global Accelerator accelerator
+Route 53 record in the same hosted zone
+
+You cannot set an ALIAS record for an EC2 DNS name
+
+-------------------------
