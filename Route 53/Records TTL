@@ -1,0 +1,19 @@
+Time To Live
+
+High TTL - 24hr
+  Less traffic on route 53
+  Possibly Outdated Records
+Low TTL - 60 seconds
+  More traffic on route 53 ($$)
+  Records are outdated for less time
+  Easy to change records
+
+Except for Alias Records, TTL is mandatory for each DNS record
+
+-------------
+
+Create New Record
+Name 
+Enter Value of EC2 instances
+TTL - 120 seconds
+Create
