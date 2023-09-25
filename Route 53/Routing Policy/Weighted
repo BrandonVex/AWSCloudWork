@@ -1,1 +1,35 @@
+Control the % of the requests that go to each specific resources - Each instance has the a weight
+Assign each record a relative weight
+  Traffic (%) Weight for specific record/ sum of all weights for all records
+  Weights dont need to sum up to 100
+DNS records must have the same name and type
+Can be associated with health checks
+Use cases: load balancing between regions, testing new application versions
+Assign a weight of 0 to to a record to stop sending traffic their way
+if all weights are 0 then each wone will be returned equally
 
+Create New Record
+Weighted
+A record
+Enter Value - 1 ip
+TTL - 5
+select weight
+health check
+Record ID
+Add another record
+Weighted - 10
+A record
+Enter Value - 1 ip
+TTL - 5
+select weight - 70
+health check
+Record ID
+Add another record
+Weighted
+A record
+Enter Value - 1 ip
+TTL - 5
+select weight - 20
+health check
+Record ID
+Create
