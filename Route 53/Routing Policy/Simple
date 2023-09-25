@@ -1,1 +1,25 @@
+Define How Route 53 responds to DNS Queries
+Dont get confused with the word "routing"
+  Its not the same as a load balancer routing which roots the traffic
+  DNS does not route any traffic, it only responds to the DNS queries - helps translates hostnames
 
+Route 53 Simple Policy
+
+Typically route traffic to a single resource
+Can specify multiple values in the same record
+If multiple values are returned, a random one is chosen by the client
+When Alias enabled, you can only specify only an AWS resource
+Cant be associated with health checks
+
+Create record
+Simple
+A record
+Value - Select instance
+TTL - 20 seconds
+Simple routing
+Create
+---To change
+Edit Record
+Value - Multiple IPs
+
+Once TTL expires - 2 records come back
