@@ -1,0 +1,18 @@
+Amazon Route 53 - primary ec2 gets health check and if fails it will failover to a secondary disaster recovery instance
+1 primary, 1 secondary
+Always get healthy EC2
+-------
+Create record
+  Name
+  Select IP value
+  Policy will be Failover
+  TTL to 60
+  Primary record
+  Associate it with a health check that matches value
+Add another record
+  Enter second IP
+  Policy will be failover
+  TTL to 60
+  Secondary Record
+  Associate a health check/ not required
+Create
