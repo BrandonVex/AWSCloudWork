@@ -1,0 +1,18 @@
+Create route 53 health check
+Name
+Endpoint
+Specify IP address
+  Us-east-1 IP
+Port (80)
+Path (/)
+Advanced config
+  standard time
+  Failure threshold (3)
+  No string
+  No latency Graph
+  No inver health checks
+  Health checker regions (recommended)
+Yes make an alarm!
+
+=> Do one for all 3 IP/EC2 instances
+
