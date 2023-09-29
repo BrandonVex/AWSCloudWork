@@ -1,3 +1,7 @@
 Use when routing traffic to multiple resources
 route 53 returns multiple value/resources
 can be associated with health checks (returns only)
+Up to 8 healthy records are returned for each multi-value query
+multi-value is not a substitute for having an ELB
+
+
