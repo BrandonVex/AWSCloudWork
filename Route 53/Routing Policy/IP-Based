@@ -1,1 +1,5 @@
-
+Routing is based on clients' IP Addresses.
+You provide a list of CIDRS for your clients and the corresponding endpoints/locations
+Use cases:
+  Optimize performance, reduce network costs
+Example: route end users from a particular ISP to a specific endpoint
