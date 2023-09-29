@@ -1,1 +1,3 @@
-
+Use when routing traffic to multiple resources
+route 53 returns multiple value/resources
+can be associated with health checks (returns only)
