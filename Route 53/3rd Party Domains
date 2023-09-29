@@ -4,7 +4,7 @@ But you can use another DNS service to manage your DNS records
   Example: purchase from godaddy, use AWS for DNS
   Change name servers into AWS servers for it can be queried there
 If you buy your domain on a 3rd pary registrar you can still use route 53 as DNS service provide by
-  Creating a hosted zone in route 53
+  Creating a public hosted zone in route 53
   update NS records on 3rd party website to route into route 53 name servers
 Domain registrar is not the same as DNS Service
 But every domain registrar usually comes with some DNS features
