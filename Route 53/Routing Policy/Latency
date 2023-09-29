@@ -3,3 +3,31 @@ Redirect to the resource that has the least latency
 Super helpful for when latency for users is a priority
 Latency is based on traffic between users and AWS Regions
 Germany users may be directed to the US if thats the lowest latency
+Can be associated with health checks (has a failover capability)
+
+Create new record
+  Name
+  Give value (Ip)
+  Routing policy - latency
+  Specify Region - IP in the specific region
+  TTL
+  Health check
+  Record ID - Name
+Add another record
+  Name
+  Give value (Ip)
+  Routing policy - latency
+  Specify Region - IP in the specific region (other from first policy)
+  TTL
+  Health check
+  Record ID - Name
+Add another record
+  Name
+  Give value (Ip)
+  Routing policy - latency
+  Specify Region - IP in the specific region (other from first and second policy)
+  TTL
+  Health check
+  Record ID - Name
+Create
+
