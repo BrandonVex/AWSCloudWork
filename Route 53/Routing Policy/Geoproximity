@@ -1,1 +1,11 @@
+Route traffic to your resources based on the geographic location of users and resources
+ability to shift more traffic to resources based on the defined bias
+To change size of the geographic region, specify bias value
+  to expand (1 to 99)
+  To shrink (-1 to -99)
+Resources can be
+  AWS (specify region)  
+  NON-aws resources (specify latitude/longitude)
+You must use route 53 traffic flow to use this feature
 
+Geoproximity routing is really helpful when you need to shift traffic from one region to another by using bias
