@@ -1,1 +1,43 @@
+HTTP Health Checks are only for public resources
+  Route 53 for DNS Records
+Create health checks from route 53 to make sure incase for failover
+Health check => automated DNS Failover
+  Health Checks that monitor an endpoint
+  Health Checks that monitor other health checks
+  Health checks that monitor cloudwatch alarms (full control) (private resources)
+Health checks are integrated with CW metrics
+
+--------------
+
+Monitor and Endpoint
+Health checks send a request to an ALB than recieve a 200 http code on success
+
+About 15 global health checkers will check the endpoint health
+  Healthy/unhealthy threshold - 3 
+  interval - 30 (can set to 10 sec - higher cost)
+  Supported protocol: HTTP, HTTPS, and TCP
+  if > 18% of health checkers report the endpoint, route 53 considers it healthy.
+  Ability to choose which locations you want Route 53 to use
+Health checks pass only when the endpoint responds with the 2xx or 3xx status codes
+Health checks can be setup to pass / fail based on the text in the first 5120 bytes of the response
+configure your router/firewall to allow incoming incoming requests from route 53 health checkers
+
+------------------------
+
+Calculated health checks
+
+Combine the results of multiple health checks into a single health checks
+you can use OR, AND, or NOT
+Can monitor up to 256 child health checks
+specify how many health checks need to pass the parent pass
+usage: perform maintenance to your website without causing all health checks to failover
+
+-----------------------
+
+Private hosted zones
+
+Route 53 health checkers are outside of the VPC
+They cannot access private endpoints
+To Do:
+  You can create a cloudwatch metric and associate a cloudwatch alarm, then create a health check that checks the alarm itself
 
