@@ -16,3 +16,15 @@ Yes make an alarm!
 
 => Do one for all 3 IP/EC2 instances
 
+---- For a health check to health check a health check
+
+Create Route 53 health check
+Name 
+Status other health checks
+Specify what health checks
+All health checks ar healthy
+Next
+Next
+Create
+
+--------
