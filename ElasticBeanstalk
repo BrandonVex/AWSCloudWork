@@ -1,0 +1,68 @@
+Developer problems on AWS
+  Managing infrastructure
+  Deploying Code
+  Configuring all the databases, load balancers
+  Scaling Concerns
+  Do Not Constantly make the same thing (use golden AMI)
+
+Most web apps will have the same architecture (ALB+ASG)
+All the developers want is for their code to run!
+Possibly, consistently across different applications and evironments - beanstalk
+
+---------------------------------
+
+Elastic Beanstalk is a developer centric view of deploying an application on AWS
+It uses all the compoinents we've seen before (EC2,ASG,ELB,RDS)
+Manages service that deploys for you!
+  Automatically handles capacity provisioning, load balancing, scaling, application health monitoring, instance configuration...
+  Just the application code is the responsibility of the developer
+We still have full control over the configurations
+Beanstalk service is free but you pay for the underlying Instances
+
+Components---->
+
+Application: Collection of elastic beanstalk compontents (environments, versions, configs)
+Application Versions: an iteration of your applciation code
+Evironment: 
+  Collection of AWS resources running an application version (only one application at a time)
+  Tiers: web server environment tier & worker environment tier
+  You can create multiple environments like (dev, test, prod...)
+
+
+                                        ----------Deploy Updated Version------------->
+---> Create application --- > upload version ----> launch environment ----> Manage environment 
+                                        ^------------------Update version
+
+------------------
+
+Supported platforms!
+
+Go
+Java SE
+Java with Tomcat
+.NET Core on linux
+.NET on WIndows
+Node.JS
+PHP
+Python
+Ruby
+Packer Builder
+Single Container
+Multi Containter
+Preconfigured Container
+If not supported you n write your custom! (advanced)
+
+------------------
+
+Web server tier vs worker tier!
+
+Web tier has the tradition architecture - ELB - ASG ETC...
+Worker Environment will have no client accessing instances - we use SQS queues. EC2 are workers as they pull messages from the SQS
+  Scaled based on SQS messages
+  Can push messages to SQS Queue from another web server tier
+
+Deployment modes---->
+
+Single instance (Great for dev!) -> elastic IP
+High Availablity with load balancer (great for production) -> ASG/RDS
+
