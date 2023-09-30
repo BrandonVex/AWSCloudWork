@@ -1,0 +1,18 @@
+When launching a full stack (ec2,ebs,rds) it can take time to
+  install applications
+  Insert inital or recovery data
+  Configure everything
+  Launch the application
+We can take advantage of the cloud to speed it up!
+
+EC2 Instances
+  Use a Golden AMI: install your applications, OS Dependencies, before hand and launch your EC2 instances from the GOlden AMI 
+    Future instances will have these already done because of golden ami
+  Bootstrap using user data: for dynamic configuration, use user data scripts (bootstrapping: means basically configuring the instance when it first starts)
+  Hybrid: Mix Golden AMI and User Data (Elastic beanstalk)
+RDS Databases
+  Restore from a snapshot the database: will have schemas and data ready (which is much better than using a big insert state.)
+EBS Volumes
+  Restore from a snapshot: the disk will already be formatted and have the data (gets rid of having a disk from non formatted)
+Speed up- think like an architect
+"whats slow,what can we make faster"
