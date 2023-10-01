@@ -1,1 +1,58 @@
 S3 Section Overview
+
+Amazon s3 is one of the main building blocks of AWS
+its advertised as "infinitely scaling" storage.
+Many websites use Amazon S3 as their backbone
+many AWS services use amazon s3 as an integration as well
+Step-by-step approach to s3:
+--------------------
+Use cases:
+
+Backup and storage
+Disaster recovery purposes
+Archive
+Hybrid Cloud Storage
+Application Hosting
+Media Hosting
+Data Lakes & big data analytics
+Software delivery
+Static Websites
+Nasdaq ----> 7 years of data stored into s3 glacier (archive)
+Sysco ----> RUns analytics on its data to gain business updates
+
+----------------------------
+
+S3 - BUCKETS
+
+Amazon S3 allows people to store objects (files) in "buckets" (directories)
+Buckets must have a globally unique name (across all regions) 
+Buckets are defined at the region level
+S3 Looks like a global service but buckets are created in a region
+Naming convention
+  no uppercase, no underscore
+  3-63 characters long
+  NOT AN IP
+  must start with a lowercase letter or number
+  Must not start with the prefix xn--
+  Must not end with the suffix -s3alias
+
+----------------------------
+
+S3 - OBJECT
+
+Objects (files) have a key
+the key is  the FULL path
+  s3://my-bucket/(my_file.txt) Just the file
+  s3://my-bucket/(my_folder1/another_folder/my_file.txt) Folders
+Key is composed of prefix + object name
+  s3://my-bucket/(my_folder1/another_folder/)<----- Prefix / suffix ----->(my_file.txt)
+There's non concept of directories within buckets
+just keys with very long names contain slashes (/)
+
+Object values are the content of the body:
+  Max object size is 5TB
+  if uploading more than 5GB, must use "multi-part upload"
+Metadata (list of key/value pairs - system or user metadata)
+Tags (unicode key/ value pair - up to 10) - useful for security/lifecycle
+Version ID (if versioning is enabled)
+
