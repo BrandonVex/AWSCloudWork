@@ -1,0 +1,34 @@
+Create Elastic Beanstalk
+Select Environment
+  Web Server (chosen)
+  Worker
+Application Name
+Environment Name
+Domain (automated)
+Choose platform
+  Select your Coding (Node.js)
+  Default
+Applciation Code
+  Sample Application
+Presets 
+  Single Instance (select)
+  High Availability
+  Custom
+Service Access
+Create an use new service role!
+  Create a role
+Creat EC2 instance profile (need new) ---> Pre-filled
+  Select IAM
+    Select Create new role
+    AWS Service
+    EC2
+    Permissions: BeanStalk Web tier, Worker tier, Multi COntainer Docker
+    Next
+    Role Name
+    Create Role
+Skip to review!
+Submit
+Now beanstalk is created!
+
+
+
