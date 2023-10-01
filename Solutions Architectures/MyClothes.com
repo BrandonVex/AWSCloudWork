@@ -55,11 +55,11 @@ Same for ElastiCache/RDS from instances
 
 ELB Sticky Sessions
 Web Clients for storing cookies/stateless
-ElastiCache
+ElastiCache (stateless)
   For storing sessions
   For caching data from RDS
   Multi AZ
-RDS
+RDS (stateless)
   For storing user data 
   Read replicas for scaling reads
   Multi AZ for disaster recovery
