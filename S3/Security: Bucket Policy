@@ -1,1 +1,32 @@
+Security
+
+User based
+  IAM policies - which API calls should be allowed for a specific user from IAM
+Resource bases
+  Bucket Policies - bucket wide rules from the s3 console - allow cross account
+  Object Access Control List - finer grain 
+  Bucket Access Control List - less common
+Most COmmon way : bucket policies
+
+Note: an IAM principal can access an S3 object if:
+  The user IAM permissions allow it or the resource policy allows it
+  and theres no explicit deny 
+
+Encryption: encrypt the object in AWS S3 using encryption keys
+
+-------------------
+
+Bucket Policy
+
+JSON based polices!
+  Resources: buckets and objects
+  Effect: Allow / Deny
+  Actions: set of API to allow or Deny
+  Principal: The account or user to apply the policy to! (*)
+Use s3 bucket policy to
+  Grant public access to the bucket
+  force objects to be encrypted at upload
+  grant access to another account
+
+------------------------
 
