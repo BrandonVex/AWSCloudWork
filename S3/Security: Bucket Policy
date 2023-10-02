@@ -30,3 +30,5 @@ Use s3 bucket policy to
 
 ------------------------
 
+If you know your bucket should never be public, leave AWS settings ON
+Can be set at account level
