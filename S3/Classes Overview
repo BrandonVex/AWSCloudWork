@@ -1,0 +1,79 @@
+Storage classes!
+
+AMAZON S3 standard - general purpose
+AMAZON S3 standard infrequen access
+AMAZON S3 one zone infrequent access
+AMAZON S3 glacier instant retrieval
+AMAZON S3 glacier flexible retrieval
+AMAZON S3 glacier deep archive
+AMAZON S3 intelligent tiering
+
+Can move between classes manually or using s3 lifecycle configurations
+
+------------------
+Durabilioty and availability
+Durability:
+  high durability (99.9x11) of objects across multiple AZs
+  Same for all classes
+Availability
+  measures how readily avilable a service is
+  varies depending on storage class
+  example: s3 standard has 99.99% availability = not available 53 minutes a year
+
+-----------------
+S3 Standard
+
+99.99% availability
+used for frequently accessed data
+low latency and high throughput
+sustain 2 concurrect facility failure
+
+use cases: Big data analytics, mobile and gaming apps, content distribution
+--------------------
+S3 Infrequent access
+
+For data that is less freuently accessed, but requires rapid access when needed
+lower cost than s3 standard
+
+S3 Standard (IA)
+99.99% availability
+use cases: disaster recoverY, Backups
+
+S3 One Zone (IA)
+High durability (99.9x11) in a single AZ; data lost when AZ is destroyed
+99.5% availability
+use cases: Storing secondary backups of on premises data or recreatable data
+-----------------------
+S3 Glacier
+
+Low cost object storage for achiving/backups
+pricing: price for storage + retrieval
+
+S3 instant retrieval
+  Millisecond retrieval, great for data accessed once a quarter
+  minimum storage is 90 days
+
+S3 Glacier Flexible
+  Expedited (1 to 5 minutes), standard (3 to 5 hours), bulk (5 to 12 hours) - free
+  minimum storage duration is 90 days
+
+S3 Glacier deep archive
+  for long term storage  
+  standard (12 hours), bulk (48 hours)
+  minimum storage of 180 days
+--------------------
+S3 Intelligent tiering
+
+Small monthly monitoring and auto-tiering fee
+moves objects automatically between access tiers based on usage
+there are no retrieval charges in S3 Intelligen Tiering
+
+Frequent - default
+Infrequent - 30 days
+archive insatnt access - 90 days
+archive access (optional)- 90 - 700+ days
+deep archive (optional) - 180 to 700+ days
+-----------------------------
+
+
+ 
