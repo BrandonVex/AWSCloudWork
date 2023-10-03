@@ -1,0 +1,26 @@
+Create new bucket
+Select region (origin bucket)
+Enable versioning though!
+Create that bucket
+Now create a new bucket
+Select new Region (replication bucket)
+Enable versioning
+
+Now that we have 2 buckets we can set up CRR
+Add your files etc...
+
+
+On the origin bucket select management
+Create replciation rule
+Name
+Enabled
+Leave source bucket as it it
+Apply all objects
+choose a bucket for (destination)
+Enter IAM Roles (create new role)
+Save
+Now select "yes replicate existing objects" for batch operations, however we chose NO
+
+You can enable "Delete marker replication"
+for you can delete from one bucket to both
+
