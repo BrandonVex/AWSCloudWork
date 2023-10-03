@@ -1,0 +1,22 @@
+You can version your files in Amazon s3
+it is enabled at the bucket level 
+Version => Updates
+Same key overwrite will change the "version" 1,2,3,4,5
+it is best practice to version your buckets
+  protect against unintended deletes (ability to restore a version)
+  easy roll back to previous version
+notes:
+  any file that is not versioned prior to enabling versioning will have version "null"
+  Suspending versioning does not delete the previous versions
+
+----------------------> Hands-on
+
+Select your bucket properties
+edit bucket versioning
+enable
+Edit your HTML file
+Upload File again
+Now that file has versioning (show versions)
+
+Null = uploaded prior to versioning
+Version ID = Versioning
