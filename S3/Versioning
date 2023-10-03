@@ -20,3 +20,8 @@ Now that file has versioning (show versions)
 
 Null = uploaded prior to versioning
 Version ID = Versioning
+
+-------------------
+
+Doesnt get deleted if (delete marker) appears
+basically puts a deleted "Version"
