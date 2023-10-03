@@ -1,0 +1,27 @@
+CRR (Cross region Replication) and SRR (Same region Replication)
+When you have 2 buckets in different regions and you want an  asynchronous replication
+  Enable versioning in source and destination bucket
+  Cross Region Replication 
+  Same Region Replication
+  Buckets can be in different AWS accounts
+  Copying happens asynchronous
+  must give proper IAM permissions to s3
+Use cases:
+  CRR - Compliance, lower latency, replication across accounts
+  SRR - log aggregaton, live replication between production and test accounts
+
+NOTES:
+
+After you enable replication, only new objects are replicated
+optionally: you can replicate existing objects using s3 batch replication
+  replicates the existing objects and that failed replication
+
+For deletes option
+  can replicate delete markers from source to target (optional)
+  deletions with a version ID are not replicated (avoid malicious deletes)
+
+There is not chaining of replication
+  If bucket 1 replicates into 2 and 2 replicates into 3
+  1 will not replicate into 3 - only 2
+
+  
