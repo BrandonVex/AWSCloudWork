@@ -1,1 +1,40 @@
+You can transition objects between storage classes
+For infrequently access object, moves them to standard IA
+For archive objects that you dont need fast access to, move them to glacier/deep archive
+moving objects can be automated by lifecycle rules
 
+----------------
+S3 Lifecycle rules
+
+Transition actions - configure objects to transition to another storage class
+  move to standard ia class after 60 days
+  move to glacier for archiving after 6 months
+Expiration Actions - configure objects to delete after some time
+  access log files can be set to delete after 365 days
+  Can be used to delete old versions of files
+  can be used to delete incomplete multi part uploads
+Rules can be created for a certain prefix
+rules can be created for certain object tags
+------------------------------------
+your application  on ec2 create images thumbnails after profile photos are uploaded to amazon s3. these thumbnails can be easily recreated, and only need to be kept for 60 days.
+the source images should be able to be immediately retrieved for these 60 days and afterwards, the user can wait up to 6 hours. how would you design this?
+
+s3 source images can be on standard with a lifecycle config to transition into glacier after 60 days
+s3 thumbnails can be on one zone ia with a lifecycle config to expire after 60 days
+------------------------------------
+A rule in your company states that you should be able too recover your deleted s3 objects immediately for 30 days, although this may happen rarely
+after this time, and for up to 365 days, deleted objects should be recoverable in 48 hours. make a life cycle rule
+
+Enable S3 versioning, to keep objects hidden with a delete marker
+transition the noncurrent versions of the object to standard IA
+transition afterwards the noncurrent versions to glacier deep archive
+
+--------------
+storage class analysis 
+
+Help you decide when to transition objects
+recommendations for standard and standard IA
+  does not work one zone ia or glacier
+Report is updated daily
+24 to 48 hours to start seeing data analysis
+good first step
