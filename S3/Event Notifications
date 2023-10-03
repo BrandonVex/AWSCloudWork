@@ -1,0 +1,30 @@
+Events?:
+  S3:ObjectCreated
+  S3:ObjectRemoved
+  S3:ObjectRestore
+  S3:Replication
+Object name filtering possibly (*.jpg)
+use cases: generate thumbnails of images uploaded to s3
+  YOU CAN SEND THIS NOTIFICATION TO:
+    sqs
+    sns
+    lambda function (advanced)
+can create as many s3 evens as desired
+s3 even notifications typically deliver events in seconds but can sometimes take a minute or longer
+
+-----------------------
+
+IAM Permissions
+from S3 ---> SNS (attach SNS resource access policy)
+from S3 ---> SQS (attach SQS resource access policy)
+from S3 ---> Lambda (attach Lambda resource policy)
+
+We define resource access policies on the Resources not the S3
+
+-----
+
+EventBridge!
+All Events go here
+advanced filtering options with JSON rules (metadata, etc...)
+Multiple destinations - ex step functions, kinesis streams / firehose)
+eventbridge capabilities - archive, replay events reliable delivery
