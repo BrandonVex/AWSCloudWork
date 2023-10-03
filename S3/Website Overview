@@ -1,0 +1,15 @@
+Static Website hosting:
+
+S3 can host static websites and have them accessible on the internet
+The website URL will be depending on the region
+  https://bucket-name.s3-website(-or.)aws-region.amazonaws.com
+If you get a 403 forbidden error, make sure the bucket policy allows public reads!
+
+----> Hands-On
+
+Select  properties of bucket
+scroll down to static website hosting
+enable
+host a static website
+specify an index document (upload that file)
+Save changes
