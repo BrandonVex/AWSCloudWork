@@ -1,0 +1,17 @@
+Permissions under specified bucket
+Edit
+Unselect (allows public access)
+Confirm since this is dangerous
+
+---> Bucket policy
+
+Create a JSON Document//Create policy through AWS Generator
+Select Effect
+Select Principal (*)
+AWS SERVICE
+Select Actions (get object)
+ARN (bucketname with / and a *)
+Add statement
+
+Copy and Paste JSON Document that was generated
+save changes
