@@ -1,0 +1,7 @@
+In general, bucket owners pay for all amazon s3 storage, and data transfer costs associated with their bucket
+with requester pays buckets, the requester instead of the bucket owner will pay the cost of the request and the data downloaded from the bucket
+helpful when you want to share large datasets with other accounts
+the requester must be authenticated in AWS (not anonymous)
+
+                                        
+
