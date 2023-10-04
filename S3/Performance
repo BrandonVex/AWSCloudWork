@@ -1,0 +1,30 @@
+Baseline performance
+
+Amazon S3 automatically scales to high request rates, altency 100-200ms
+your application can achieve at least 3500 PUT/COPY/POST/DELETE or 5500 GET/HEAD requests per second per prefix in a bucket
+there is no limits to the number of prefixes in a bucket
+Example (object path => prefix)
+  bucket/folder1/sub1/file => /folder1/sub1/
+  bucket/folder1/sub2/file => /folder1/sub2/
+if you spread reads across all four prefixes evenly, you can achieve 22000 requests per second for GET and HEAD
+
+--------------------------
+ Performance
+
+Multi-part upload
+  recommended for files > 100mb
+  must use for files > 5 gb
+  can help parallelize uploads (speeds and transfers)
+s3 transfer acceleration
+  increase transfer speed by transferring file to an AWS edge location which will forward the data to the s3 bucket in the target region
+  compatitble with multi-part upload 
+
+-----------
+
+S3 Byte range fetches
+
+parallelize GETS by requesting specific byte ranges
+better resilience in case of failures
+can be used to speed up downloads
+can be used to retrieve only partial data
+
