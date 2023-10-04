@@ -1,0 +1,13 @@
+Create your bucket
+select properties
+create event notification or eventbridge
+  event name
+  event types
+    Object create
+  select destination
+    sqs
+  create sqs queue
+  create queue
+  select SQS queue
+    Change access policy on SQS
+save changes
