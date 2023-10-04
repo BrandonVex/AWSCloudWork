@@ -1,0 +1,11 @@
+perform bulk operations on existing s3 objects with a single request
+  modify object metadata and properties
+  copy objects between s3 buckets
+  encrypt un-encrypted objects
+  modify ACLs tags
+  restore objects from s3 glacier
+  invoke lambda function to perform custom action on each object
+a job consists of a list of objects, the action to perform, and optional parameters
+s3 batch operations manage retries, tracks progress, sends complete notifications, generates reports
+you can use S3 inventory to get object list and use S3 to filter your objects
+
