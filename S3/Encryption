@@ -1,1 +1,83 @@
+Object encryption
+
+You can encrypt objects in S3 Buckets using one of 4 methods
+
+SSE (server side encryption)
+ SSE with amazon s3 managed keys (sse-s3)
+    encrypts s3 objects using keys handled managed and owned by AWS
+  SSE with KMS keys stores in AWS KMS (sse-kms)
+    leverage AWS key management service to manage encryption keys
+  SEE with customer provided keys (sse-c)
+    when you want to manage your own encryption keys
+Client-side encryption
+
+its important to understand which ones are for which situation
+
+-------------------------------------------
+
+SSE S3
+
+Encryption using keys handled, managed and owned by AWS
+Object is encrypted server side
+Encryption type is AES-256
+Must set header "x-amz-server-side-encryption":"AWS256"
+Enabled by default for new buckets and objects
+
+-------------------
+
+SSE KMS
+
+Encryption using keys handled and managed by AWS KMS 
+KMS advantages: user control + audit key usage using cloudtrail
+Must set header "x-amz-server-side-encryption":"aws:kms"
+
+SSE KMS Limitations
+
+If you use SSE-KMS, you may be impacted by the KMS limits
+when you upload, it calls the GenerateDataKey KMS API
+When you download, it calls the Decrypt KMS API
+Count towards the KMS quota per second
+you can request a quota increase using the Service Quotas console
+
+-----------------
+
+SSE C
+
+server-side encryption using keys fully managed by the customer outside of AWS
+Amazon S3 does not store the keys
+HTTPS must be used
+Encryption keys must provided in HTTP headers for every HTTP request made
+
+
+------------------
+
+CLient side encryption
+
+Use client libraries such as Amazon S3 client side encryption library
+clients must encrypt data themselves before sending it to Amazon S3
+Clients must decrypt its own data
+customer fully manages the keys and encryption cycle
+
+-------------
+
+Encryption in transit SSL/TLS
+
+amazon s3 exposes two endpoints
+  HTTP endpoint - non encrypted
+  HTTPS endpoint - encryption in flight
+
+HTTPS is recommended
+HTTPS in mandatory on SSE-C
+most clients would use the HTTPS by default
+
+--------------------------
+
+Force encryption AWS:SecureTransport
+
+Use a bucket policy
+
+aws:SecureTransport "false"
+HTTPS - Goes through
+everything else doesnt
+
 
