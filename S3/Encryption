@@ -22,6 +22,8 @@ Object is encrypted server side
 Encryption type is AES-256
 Must set header "x-amz-server-side-encryption":"AWS256"
 Enabled by default for new buckets and objects
+Optionally you can force encryption using a bucket policy and refuse any API call to PUT an s3 object without encryption headers
+
 
 -------------------
 
