@@ -1,0 +1,13 @@
+access points are connected to specific things in a bucket for a SPECIFIC group of users - it uses R/W policies
+access points simplify security management for s3 buckets
+each access point has:
+  its own DNS name
+  an access point policy- manage security at scale
+
+---
+
+VPC origin
+
+we can define the access point to be accessible only from within the VPC
+you must create a VPC endpoint to access the access point
+the vpc endpoint policy must allow access to the target bucket and access points
