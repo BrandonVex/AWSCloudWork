@@ -1,0 +1,20 @@
+For audit purposes you may want to log all access to S3 Buckets
+any requests made to S3 FROM ANY ACCOUNT, authorized or denied, will be logged into another s3 bucket
+that data can be analyzed using data analysis tools... (aws athena)
+The target logging bucket must be in the same AWS region
+Specific log formats
+
+warning:
+  do not set your logging bucket to be the monitored bucket
+  it will create a logging loop, and you bucket will grow exponentially
+
+------------ 
+
+hands on:
+create seperate logging bucket
+select bucket you want to log
+properties
+server access logging enabled
+bucket policy will be updated in target bucket
+select the bucket you want
+save
