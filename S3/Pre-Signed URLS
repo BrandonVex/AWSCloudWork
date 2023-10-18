@@ -1,0 +1,18 @@
+generate pre-signed urls using s3 console, aws clie, or sdk
+URL Experation
+  S3 COnsole - 1 min to 720 mins (12 hrs)
+  aws cli - configure expiration with (default 3600, max 604800 secs ~ 168 hours)
+Users given a pre-signed url inherit the permissions of the user that generated the URL for GET/PUT
+use cases:
+  private bucket
+  you want to give access to one person for ONE FILE keeping it private
+    generate pre signed url for this file
+    carry over credentials
+      send the URL to target user for specific amounts of time
+      file back from s3 bucket 
+      temp access for 1 specific file
+
+examples:
+  allow only loged in users to download a premium video from your s3 bucket
+  allow an ever changing list of users to download files by generating urls dynamically
+  allow temporarily a user to upload a file to a precise location in your s3 bucket
