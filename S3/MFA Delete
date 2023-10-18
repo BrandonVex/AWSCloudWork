@@ -1,0 +1,11 @@
+MFA ( multi factor authentication) - force users to generate a code on a device before doing important operations on s3
+MFA WILL BE REQUIRED TO:
+  permanatley delete an object version
+  suspend versioning on the bucket
+MFA wont be required to
+  enable versioning
+  list deleted versions
+to use MFA delete, versioning must be enabled on the bucket
+only the bucket owner (root account) can enable/disable MFA delete
+
+extra protection against permanate deletion in S3
