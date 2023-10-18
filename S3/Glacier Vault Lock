@@ -1,1 +1,21 @@
+Glacier Vault lock
+adopt a worm model
+create a vault lock policy
+lock the policy for future edits
+helpful for compliance and data retention
+------------------------
+S3 Object lock
+
+adopt a worm model
+block an object version deletion for a specific amount of time
+retention mode compliance
+  object versions cant be overwritten or deleted from any user, including root user
+  object retention modes cant be changed, and retention periods cant be shortened
+retention mode governance
+  most users cant overwrite or delete an object version or alter its lock settings
+  some users have special permissions to change the retention or delete the object
+retention period: protect the object for a fixed period, it can be extended
+Legal hold
+  protects the object indefinitely, independent from retention period
+  can be freely placed and removed using the s3:PutObjectLegalHold IAM Permssions
 
