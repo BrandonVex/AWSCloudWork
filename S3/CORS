@@ -1,1 +1,5 @@
+Cross Origin Resource Sharing
+Origin = scheme (protocol) + host (domain) + port
+  Example: hhtps://www.example.com (implied port is 433 for HTTPS, 80 for HTTP)
+Web browser based mechanism to allow requests to other origins while visiting the main origin
 
