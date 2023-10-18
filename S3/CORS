@@ -1,5 +1,42 @@
 Cross Origin Resource Sharing
 Origin = scheme (protocol) + host (domain) + port
-  Example: hhtps://www.example.com (implied port is 433 for HTTPS, 80 for HTTP)
+  Example: https://www.example.com (implied port is 433 for HTTPS, 80 for HTTP)
 Web browser based mechanism to allow requests to other origins while visiting the main origin
+  Same origin: https://www.example.com (appl1) and (appl2)
+  Different origins https://www.example.com and https://other.example.com
+The requests wont be fulfilled unless the other origin allows for the requests using CORS HEADERS (example: Access Control Allow Origin)
+
+If a client makes a cross origin request on our s3 bucket, we need to enable the correct CORS headers
+its a popular exam question
+you can allow for a specific origin or for (*  (all))
+
+CORS is a web browser security that allows you to enable images or assets from  an s3 bucket from another origin
+
+-------
+
+Cors HTML Demo
+
+<html>
+  <!-- CORS DEMO -->
+  <!-- <div id="tofetch"/>
+  <script>
+    var tofetch = document.getElementById("tofetch");
+
+    fetch('extra-page.html')
+    .then((response) => {
+      return response.text();
+    })
+    .then((HTML) => {
+      tofetch.innerHTML = html
+    });
+  </script> -->
+</html>
+--------------------
+
+Permissions
+
+CORS SETTINGS
+
+edit
+
 
