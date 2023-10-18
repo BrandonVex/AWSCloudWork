@@ -9,3 +9,4 @@ to use MFA delete, versioning must be enabled on the bucket
 only the bucket owner (root account) can enable/disable MFA delete
 
 extra protection against permanate deletion in S3
+you have to use AWS CLI to enable the MFA 
