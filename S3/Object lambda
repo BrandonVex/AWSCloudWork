@@ -1,0 +1,10 @@
+Use AWS lambda functions to change the object before its retrieved by the caller application
+only one s3 bucket is needed, on top of which we create S3 ACCESS POINT and S3 OBJECT LAMBDA ACCESS POINT
+
+Supporting s3 access point --->redacting lambda function ----> s3 object lambda access point ---> analytics application (redacted objects)
+Supporting s3 access point --->Enriching lambda function ----> s3 object lambda access point ---> Marketing application (Enriching)
+
+use cases:
+  redacting personally identifiable information for analytics or non-production environments
+  converting across data formats such as converting XML to JSON
+  resiuzing and watermarking images on the fly using caller specific details such as the user who requested the object
