@@ -1,0 +1,36 @@
+What does this S3 bucket policy do?
+
+{
+
+    "Version": "2012-10-17",
+
+    "Id": "Mystery policy",
+
+    "Statement": [{
+
+        "Sid": "What could it be?",
+
+        "Effect": "Allow",
+
+        "Principal": {
+
+           "Service": "cloudfront.amazonaws.com"
+
+        },
+
+        "Action": "s3:GetObject",
+
+        "Resource": "arn:aws:s3:::examplebucket/*",
+        "Condition": {
+            "StringEquals": {
+                "AWS:SourceArn": "arn:aws:cloudfront::123456789012:distribution/EDFDVBD6EXAMPLE"
+            }
+        }
+
+    }]
+
+}
+
+
+
+ONLY ALLOWS THE S3 BUCKET CONTENT TO BE ACCESSED FROM YOUR CLOUDFRONT DISTRIBUTION
