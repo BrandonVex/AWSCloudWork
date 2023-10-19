@@ -1,1 +1,4 @@
+Snowball cannot import to glacier directly
+you must use Amazon s3 first, in combination with an S3 lifecycle policy
+the lifecycle policy will go into glacier
 
