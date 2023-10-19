@@ -1,1 +1,32 @@
+Content Deliver Network (CDN)
+improves read performance, content is cached at the edge
+improves user experience
+216 points of presence globally (edge location)
+DDoS protection (because worldwide), integration with Shield, AWS Web application Firewall (WAF)
+
+Origins---
+
+S3 Buckets
+  for distributing files and caching them at the edge
+  enhanced security with CloudFront Origin Acess Control (OAC)
+  OAC is replacing OAI (origin access identity)
+  Cloudfront can also be used as an ingress (upload files into s3)
+Custom Oirigin (HTTP)
+  Application Load Balancer
+  EC2 instance
+  S3 Website (static website)
+  Any HTTP backend you want
+
+----------------
+
+CLoudfron:
+  Global edge network
+  files are cached for a TTL
+  great for static content that must be available around the world
+S3 Cross Region Replication
+  must be setup for each region you want to replicate in
+  files are updated in near real time
+  read only
+  great for dynamic content that needs to be available at low latency in few regions
+
 
