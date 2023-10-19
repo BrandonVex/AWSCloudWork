@@ -4,3 +4,39 @@ you have deployed an application and have global users who want to access direct
 they go over the public internet which can add a lot of latency due to many hops of routers
 we wish to go as fast as possible through AWS network to minimize latency
 
+Uses ANYCAST IP
+
+leverage the AWS internal network to route your application
+instead of putting it on the American server, just uses an EDGE location
+2 anycast IPS are created for your application
+the anycast ip send traffic directly to edge locations
+the edge locations send the traffic to your application
+
+Works with Elastic IP, EC2, ALB, NLB, public or private
+consisatent performance
+  intelligent routing to lowest latency and fast regional failover
+  no issue with client cache
+  internal AWS network
+Health checks
+  global accelerator performs a health check for your applications
+  helps makes your application global (failover instantly)
+  great for disaster recovery
+Security
+  only 2 external ip need to be whitelisted
+  DDoS protection thanks to AWS shield
+
+-----------------------------
+
+The both use the AWS global network and its edge locations
+both services integrate with AWS shield 
+
+Cloudfront:
+  improves performance for both cacheable content
+  Dynamic content
+  Content is served at the edge
+Global Accelerator:
+  Improves performance for a wide range of applications over TCP or UDP
+  proxying packets at the edge to applications running in one or more AWS regions
+  good fit for NOn-HTTP use cases such as gaming, IoT, or voiceover IP (UDP, MQTT)
+  Good for HTTP use cases that require static IP addresses 
+  GOOD FOR http USE CASES THAT REQUIRED DETERMINISTIC, FAST REGION FAILOVER
