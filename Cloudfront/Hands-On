@@ -1,0 +1,15 @@
+Create a bucket (demo cloud front) (private)
+Create a CloudFront Distribution
+Origin Domain select (s3 buckets)
+Origin access
+  public
+  OAC <---- select
+  Legacy
+Create origin access control
+  name 
+    create
+Select Origin access control
+Must give your bucket a policy for access through CloudFront
+Disable WAF for now
+The default root object is index.html
+
