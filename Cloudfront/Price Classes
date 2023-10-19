@@ -1,0 +1,13 @@
+Pricing --
+
+Cloudfront edge locations are global
+the cost of data out per edge location will varies
+More data transfered out, the lower the cost
+
+-----Classes
+
+you can reduce the numer of edge l;ocations for cost reduction
+three price classes
+  price class all : all regions : best performance (most money)
+  price class 200 : most regions but excludes the most expensive regions
+  price class 100 : only the least expensive regions
