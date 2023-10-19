@@ -1,0 +1,5 @@
+You can restrict who can access your distribution
+  allowlist: allows your users tto access your contect, only if theyre in one of the countries that are listed
+  Blocklist: prevents your users from accessing your content if theyre in one of the countries that a banned listed
+the country is determined using a 3rd party geo-ip database
+use cases: Copyright laws to allow access
