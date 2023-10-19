@@ -1,0 +1,2 @@
+Unicast IP: One server holds one IP address
+Anycast IP: all servers will hold the same IP address and the client is router to the nearest one
