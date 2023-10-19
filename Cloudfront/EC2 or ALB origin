@@ -1,0 +1,5 @@
+EC2 must be public
+ALB must be public 
+  Backend EC2 can be private
+  ec2 security group allows load balancer
+users access edge location but the PUBLIC ips of edge locations must be allowed
