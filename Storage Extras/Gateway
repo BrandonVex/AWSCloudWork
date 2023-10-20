@@ -1,1 +1,66 @@
+AWS Wants to start Hybrid Cloud!
+
+----------------
+AWS Storage gateway
+
+Bridge between on premises data and cloud data
+use cases:
+  disaster recovery
+  backup and restore
+  tiered storage
+  on-premises cache and low-latency files access
+types of storage gateway
+  S3
+  FSx
+  Volume
+  Tape
+----------------------
+
+S3 File Gateway
+
+Configured s3 buckets are accessible using the NFS and SMB protocol
+most recently used data is cached in the file gateway
+supports all tierings
+transition to s3 glacier using lifecycle policy
+bucket access using IAM roles for each file gateway
+SMB protocol has integration with active directory for user authentication
+
+-------------
+
+FSx File Gateway
+
+Native access to Amazon FSx for windows file server
+Local cache for frequently accessed data
+windows native compatibility (SMB NTFS, AD)
+useful for group file shares and home directories
+-----------------------------
+
+Volume Gateway
+
+Block storage using iSCSI protocol backed by S3
+Backed by EBS snapshots which can help restore on-premises volumes
+Cached volumes: Low latency access to most recent data
+stored volumes: entire dataset is on-premise, scheduled backups to s3
+-----------
+
+Tape gateway
+
+Some companies have backup processes using physical tapes
+with tape gateway, companies use the same processes but, in the cloud
+Virtual Tape Library backed by amazon S3 and glacier
+back up data using existing tape-based processes 
+work with leading backup software vendors
+
+--------------
+
+Hardware appliances
+
+using storage gateway means you need on premises virtualization
+otherwise, you can use a storage gateway hardware appliance
+you can buy it on amazon.com
+works with file, volume, tape gateway
+Has the required CPU, memory, network and SSD cache resources
+helpful for daily NFS backups in small data centers
+
+------------------------
 
