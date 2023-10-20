@@ -1,1 +1,15 @@
-
+A fully managed service for file transfers into and out of amazon s3 or EFS using the FTP protocol
+supported protocols
+  FTP (file tansfer protocol) <-- UNENCRYPTED
+  FTPS (file tansfer protocol USING SSL)
+  SFTP (sECUREfile tansfer protocol)
+managed infrastructure, scalable, reliable, multi az
+pay per provisioned endpoint per hour + data transfers in GB
+Store and manage users credentials within the service
+integrate with existing authentication systems
+use:
+  sharing files
+  public datasets
+  CRM
+  ERP
+Route 53 optional
