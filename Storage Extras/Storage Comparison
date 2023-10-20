@@ -1,0 +1,14 @@
+S3: Object storage
+S3 Glacier: Object archive
+EBS Volumes: Network storage for one EC2 instrance at a time
+Instance Storage: Physical storage for your EC2 instance 
+EFS: network file system for linux isntances, POSIX file system 
+FSx for windows: Network FIle system for windows servers
+FSx for lustre: High performance computing linux file system
+FSx for NetAPP ontap: high OS compatibility
+FSx for OpenZFS: managed ZFS file system
+Storage gateway: S3 and FSx file gateway, volume gateway (cached or stored), tape gateway
+Transfer Family: FTP, FTPS, SFTP interface on top of S3 and EFS
+Datasync: Scheduled data sync from on-premises to AWS or AWS TO AWS
+Snowcone / Snowball / Snowmobile: to move large amount of data to the cloud, phyhsically
+Database: for specific workloads, usually with indexing and querying
