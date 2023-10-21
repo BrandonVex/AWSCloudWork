@@ -1,0 +1,10 @@
+When a consumer requests messages from the queue, it can optionally wait for messages to arrive if there are none in the queue
+this is called long polling
+  Decrease latency
+  Reduce API calls on SQS
+LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application
+The wait time can be between 1 to 20 seconds
+long polling is preferable to short polling
+Long polling can be enabled at the queue level, or at the API level using WaitTimeSeconds
+
+High polls low latency = long polling
