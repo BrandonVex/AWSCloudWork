@@ -1,0 +1,82 @@
+Whats a queue?
+
+SQS IS COMPLICATED
+SQS - Standard queues
+
+Oldest offering (over 10 years old)
+Fully managed service, used to decouple application
+Decoupling = SQS
+
+attributes:
+  unlimited throughput. unlimited number of messages in queue
+  defailt retention of messages: 4 days, maximum 14 days
+  Low latency (<10ms on publish and recieve)
+  limitation of 256KB per messages sent
+Can have duplicate messages (at least once delievery, occasionally)
+can have out of the order messages (best effort ordering)
+
+------------------------
+
+Producing messages!
+
+Produced to SQS using SDK (SendMessage API)
+The message is persisted in SQS until a consumer deletes it
+message retention: default 4 days, up to 14 days
+Examples: Send an order to be proccessed
+  order id
+  customer id
+  any attributes you want
+SQS Standard: unlimited throughput
+
+---------------
+
+Consuming messages
+
+Consumers (running on EC2 instances, servers , or AWS lambda)
+Poll SQS for messages (recieve up to 10 messages at a time)
+Proccess the messages (example: insert the message into an RDS database)
+Delete the messages using the DeleteMessage API after you finished what you needing to do
+
+--------------
+
+Multiple EC2 instances consumers
+
+Consumers rteceive and processs messages in parallel
+at least once delivery
+best-effor message ordering
+consumers delete messages after proccessing them
+we can scale sconsumers horizontally to improve throughput of preccesing
+
+--------------------
+
+SQS with ASG
+
+SQS works amazing with Auto scaling groups
+Queue Length: CloudWatch Metric
+  ApproximateNumberOfMessages
+SQS - CLOUDWATCH METRIC - CLOUDWATCH ALARM - ASG - EC2
+
+------------------
+
+SQS to decouple between application tiers
+
+Best SQS architecture
+
+Requests go to your EC2 front end that then sends messages into you SQS queue
+than the SQS queue has back-end application recieve the messages that then inserts into an S3 bucket
+all use ASG
+
+-----------------------------
+
+Security
+
+Encryption:
+  in flight encryption using HTTPS api
+  at-rest encryption using KMS keys
+  Client-side encryption if the client wants to perform encryption/decryption itself
+Access controls: IAM policies to regulate access to the SQS API
+SQS Access Policies (similar to S3 policies)
+  useful for cross-account access to sqs queues
+  useful for allowing other services to write to an SQS queue
+
+
