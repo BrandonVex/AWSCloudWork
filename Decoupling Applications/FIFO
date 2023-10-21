@@ -4,4 +4,5 @@ limited throughput: 300msg/s without batching, 3000msg/s with batching
 exactly-once send capability (removing duplicates)
 Messages are processed in order by the consumer
 
+Name has to end in .fifo
 
