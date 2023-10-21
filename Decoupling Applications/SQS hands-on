@@ -1,0 +1,28 @@
+Create Queue
+Select type
+  standard <--- Select
+  FIFO
+Name
+Config
+  visibility timeout
+  delivery delay
+  recieve message wait time
+  message retention
+  maximum message size
+Encryption
+  Server-side encryption
+    enable
+  Encryption key type
+    SSE-SQS
+    SSE-KMS
+      chose master keys
+      data key reuse period
+Access policy
+  Basic
+    Only queue owner
+    specified AWS
+    both send and recieve
+  Advanced
+Redrive
+Dead-letter
+Create
