@@ -1,1 +1,13 @@
+When we start deploying multiple applications, they will inevitably need to communicate with each other
+there are two patterns of application communication
+Synchronous communications (application to application)
+Asynchronous/event based (application to queue to application)
+
+Synchronous between applications can be problematic if sudden spikes of traffic
+what if you need to suddenly encode 1000 videos but usually 10? TOO MUCH WORK
+in that case, its better to decouple your applications
+using SQS: queue model
+using SNS: pub/sub model
+Kinesis: Real-time streaming model
+These services can scale independently from our application
 
