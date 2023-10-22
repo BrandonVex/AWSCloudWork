@@ -1,0 +1,15 @@
+You need in-depth expertise
+
+Makes it easy to collect, process, and analyze streaming data in real time
+Ingest real-time data such as: Application logs, metrics, website clickstreams IoT telemetry data...
+
+4 services
+
+Kineses data streams - Capture, process, and store data streams
+Kinesis data firehose - load data streams into AWS data store
+Kinesis data analytics - analyze data streams with SQL or Apache Flink
+Kinesis Video Streams - Caputre, process, and store video streams
+
+----------------------
+
+PLEASE KNOW THIS IN-DEPTH
