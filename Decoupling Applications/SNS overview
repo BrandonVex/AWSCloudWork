@@ -1,1 +1,61 @@
+What if you want to send one message to many receivers? you use SNS
+Pub/SUB is better
+Buying service publishes in an SNS topic than the message gets received by the subscribers
+The event producer only sends the message to one SNS topic
+as many "event receivers" (subscriptions) as we want to listen to the SNS topic notification
+Each subscriber to the topic will get all the messages (note: new feature to filler messages)
+up to 12,500,000 subscriptions per topic (change over time)
+100,000 topics limit (increase that limit)
+
+SNS ---> PUBLISH TO SUBSCRIBERS
+  Emails
+  SMS and Mobile notifications
+  HTTP(S) endpoints
+  Lambda
+  SQS
+  Kinesis Data Firehose
+
+-------------------
+
+Recieves from:
+
+CloudWatch Alarms
+AWS budgets
+Lambda
+ASG
+S3
+DynamoDB
+CloudFormation
+AWS DMS
+RDS Events
+
+---------------------
+
+How to publish
+
+Topic Publish (using the SDK)
+  create topic
+  create subscription(s)
+  publish the topic
+Direct publish (for mobile apps SDK)
+  Create a platform application
+  Create a platform Endpoint
+  publish to the platform endpoint
+  work with google GCM, Apple APNS, Amazon ADM  --> Different ways
+-------------
+
+Security
+
+Encryption
+  in-flight encryption using HTTPS API
+  Atr-rest encryption using KMS keys
+  client-side encryption if the client wants to perform encryption/decryption itself
+
+Access controls: IAM policies to regulate access to the SNS API
+
+SNS Access Policies (similar to s3 bucket policies)
+  Useful for cross-account access to SNS topics
+  useful for allowing other services to write to an SNS topic
+
+
 
