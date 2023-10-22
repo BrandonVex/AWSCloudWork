@@ -1,0 +1,51 @@
+Push once in SNS, recieve in all SQS queues that are subscribers
+Fully Decoupled, no data loss
+SQS allows for: data persistence, delayed proccessing, and retries of work
+ability to add more SQS subscribers over time
+Make sure oyur SQS Queue access policy allows for SNS to write!~
+Cross-region delivery: works with SQS Queues in other regions
+
+------------------------
+APPLICATION: S3 Events to multiple queues
+
+For the same combination of: event type (e.g. object create)
+and prefix (e.g. images/) you canonly have one S3 Event rule
+If you want to send the same S3 event to many SQS queues, use fan-out
+
+---------------
+
+SNS to Amazon S3 thought kinesis data firehose
+
+SNS can send to Kinesis and therefore we can have the folliwing:
+  Buying service --->  SNS topic  --->  Kinesis Data Firehose  ---> (fan out)  ---> S3 / any supported destination
+
+----------------------
+
+FIFO Topic 
+
+FIFO = First in first out
+Similar features as SQS FIFO
+  Ordering by message group ID (all messages in the same group are ordered)
+  Deduplication using a Deduplication ID or Content Based Deduplication
+Can have SQS Standard and FIFO queues as subscribers !!!!!!!!!!!!!!!!!
+Limited throughput (Same throughput as SQS FIFO)
+
+------------------
+
+SNS FIFO + SQS FIFO: FANOUT
+
+in case you need fan out + ordering + deduplication
+
+Buying service  --->  SNS Fifo  ---> fanouts to 2 SQS FIFO QUEUE   ---> shipping services
+
+---------------------------
+
+Message Filtering
+
+JSON policy used to filter messages sent to SNS topic's subscriptions
+if a subsciption doesnt have a filter policy: it receives every message (default)
+
+For having a specific SQS Queue (placed orders) you can make a filter policy to only recieve order
+also can be done for like Cancelled order/ cancelled emails / and decilned orders.
+You  have to state in the policy what will be the "STATE" (ex. State: Cancelled  --->  Cancelled orders)
+
