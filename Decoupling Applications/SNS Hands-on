@@ -12,3 +12,19 @@ Define who can pubish and subscribe
   everyone
   specified AWS accounts
 Create topic
+
+
+
+WE HAVE TO REMEMBER THESE PROTOCOLS
+
+KINESIS DATA FIREHOSE
+SQS
+LAMBDA
+EMAIL
+EMAIL-JSON
+HTTP
+HTTPS
+SMS
+
+
+Create subscriptions
