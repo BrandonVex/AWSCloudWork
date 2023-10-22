@@ -1,0 +1,14 @@
+Create SNS
+Name
+Type
+  FIFO
+  Standard <-------
+Encryption
+Access Policy
+  basic
+  advanced
+Define who can pubish and subscribe
+  Topic owner
+  everyone
+  specified AWS accounts
+Create topic
