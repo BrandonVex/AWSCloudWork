@@ -1,0 +1,48 @@
+It is a very helpful service that can take data form produces | same as data streams 
+However, data stream/cloudwatch/and AWS IoT can be sent into kineses firehose.
+you can use lambda to transform the data into serverless lambda function
+than batch writes into destinations
+  AWS Destinations:
+    Amazon S3
+    Amazon Redshift (Copy thru s3)
+    Amazon OpenSearch
+  3rd aprty destinations
+    DataDog
+    Splunk
+    New Relic
+    mongoDB
+  Custom destinations
+    HTTP Endpoint
+
+2 extra options after
+All or failed data can get sent into a s3 bucket
+
+----------------
+
+Fully managed server, no administration, automatic scaling, serverless
+Pay for data going through firehose
+Near Real Time
+  60 seconds latency minimum for non full batches
+  or minimum 1 MB of data at a time
+Supports many data formats, conversions, transformations, compressions
+Supports custom data transformations using AWS Lambda
+Can send failed for all data to a backup s3 bucket
+
+------------------------------------
+
+Data streams vs Firehose
+
+Kinesis data streams
+  Streaming service for ingest at scale
+  write custom code (producer/consumer)
+  Real time (~200ms)
+  Manage scaling yourself
+  data storage for 1 to 365 days
+  Supports replay capability
+Kinesis data firehose
+  Load streaming data into S3 / REDSHIFT / OPENSEARCH / 3RD PARTY / Custom HTTP
+  Fully managed
+  Near Real Time (buffer of 60 seconds)
+  Automatic scaling
+  No data storage (no replay)
+  Doesnt support replay capabilities
