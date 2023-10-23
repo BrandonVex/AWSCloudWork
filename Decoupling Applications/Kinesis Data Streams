@@ -1,1 +1,69 @@
+Knises data streams bis a way to stream big data in your system
+made of multiple shards | shard 1 to shard N
+Provisioned ahead of time
+Data split across all the shards
+
+Producers send data into kinesis streams such as
+  Applications
+  Client
+  SDK (lower level)
+  KPL (higher level)
+  Kinesis Agent
+These produce records into kinesis made of 2 things | Partition key and Data Blob
+The partition key makes sure what shard takes the data
+Data blob is the data itself
+1/MB second or 1000 MSG/S per shard
+6 = 6mb/s etc...
+
+Consumers are:
+  Applications (KCL SDK)
+  Lambda
+  Kinesis Firehose
+  Kinese data analytics
+Consumer receives the partition key, sequence number (where record was in shard) and data blob
+2 MB/sec (shared) per shard all consumers or 2MB/sec (enhanced) per shard per consumer
+
+
+-----------------------------
+
+Propeties:
+
+Retention between 1 to 365 days
+ability to reprocess (replay) data
+Once data is inserted in Kinesis, it cant be deleted (immutability)
+Data that shares the same partition goes to the same shard (ordering)
+Produces: AWS SDK, Kinesis Produce Library (KPL), Kinesis agent
+Consumers
+  Write your own: KCL, AWS SDK
+  Managed: Lambda, Kinesis firehose, kinesis data analytics
+
+-----------------------
+
+Capacity modes:
+
+Provisioned mode:
+  you choose the number of shards provisioned, scale manually or using API
+  Each shard gets 1MB/s in (1000 records)
+  Each shard gets 2MB/s out (classic or enhanced fan-out consumer)
+  You pay per shard provisioned per hour
+
+On-demand mode:
+  No need to provision or manage the capacity
+  Default capacity provisioned (4 MB/s in or 400 records)
+  Scales automatically based on observed throughput peaks during the last 30 days
+  Pay per stream per hour & data in/out per GB
+
+----------------------
+
+Security:
+
+Within a Region
+Control access/authorization using IAM policies
+Encryption in flight using HTTPS endpoints
+Encryption at rest using KMS
+You can implement encryption/decryption of data on the client side (harder)
+VPC endpoints available for kinesis to access withing a vpc (ec2 -> vpc -> kineses)
+Monitor API calls by using cloudtrail
+
+
 
