@@ -1,0 +1,47 @@
+ordering data into kineses
+
+Imagine you have 100 trucks on the road sending their GPS positions regularly into AWS
+You want to consume the data in order for each truck, so that you can track their movement accuretly
+
+Answer: send using a "partition key" value of the truck id
+the same key will always go to the same shard
+
+-----------------------------
+
+Ordering data in SQS
+
+For sqs standard there is no ordering
+For sqs fifo, if you dont use a group ID, messages are consumed in the order they are sent with only one consumer
+you want to scale the number of consumers, but you want messages to be "grouped" when they are related to each other
+then you use a group ID (similar to partition key in kinesis)
+
+---------------------
+
+Lets assume 100 trucks, 5 shards, 1 SQS fifio
+
+Kinesis data streams: 
+  on average youll have 20 trucks per shard
+  trucks will have their data ordered within each shard
+  the maximum amount of consumers in parallel we can have is 5
+  can recieve up to 5MB/s of data
+SQS FIFO:
+  You only have one SQS fifo queue
+  you will have 100 Group ID
+  you can have up to 100 consumers
+  you have up to 300 messages per second (3000 if batching)
+
+Based on use cases | to be better to use SQS FIFO.
+
+If you want to have a dynamic number of consumers
+
+based on the number of group IDs,
+
+and sometimes it could be better to use Kinesis Data Stream
+
+if you have say 10,000 trucks and you need
+
+to send it lot of data,
+
+and also have data ordering per shard
+
+in your Kinesis Data Stream. 
