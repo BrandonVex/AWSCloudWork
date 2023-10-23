@@ -1,0 +1,26 @@
+SQS:
+  consumer "pull data"
+  Data is deleted after being consumed
+  can have as many workers as we want
+  no need to provision throughput
+  Ordering guarantees only on FIFO queues
+  Individual message delay capabillity
+SNS:
+  Push data to many subscribers
+  up to 12,500,000 subscribers
+  Data is not persisted (lost on not delivered)
+  pub/sub
+  Up to 100,000 topics
+  No need to provision throughput
+  Integrates with SQS for fan-out architecture patterns
+  FIFO capability for SQS FIFO
+KINESIS:
+  Standard: Pull data
+    2MB per shard
+  Enhanced fan-out: push data
+    2 MB per shard per consumer
+  possibility to replay data
+  meant for real-time big data, analytics and ETL
+  ordering at the shard level
+  Data expires after X days
+  Provisioned mode or on-demand capacity mode
