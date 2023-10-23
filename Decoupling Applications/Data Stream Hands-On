@@ -1,0 +1,56 @@
+Create Data stream (shows pricing)
+Name
+Data stream capacity
+  On demand 
+  Provisioned
+Create data stream 
+
+Applications are
+
+SDK
+Kinesis agent
+KPL
+(all on github)
+
+Consumers are
+
+Kinesis data analytics
+Kineses firehose
+KCL
+
+---------------------------
+
+CLI Kineses data streams coding
+
+
+aws --version
+
+#producer
+
+aws kinesis 
+put-record  (this gives the data)
+--stream-name "name" (name of data stream on AWS)
+--partition-key (specify partition key of shard)
+--data "user signup" (data itself)
+--cli-binary-format raw-in-base64-out (basic)
+
+#consumer
+
+#describe the stream
+aws kinesis describe-stream --stream-name "name" (stream name) - find shardID
+
+#consume some data
+
+aws kinesis get-shard-iterator
+--stream-name "name" (name)
+--shard-id shardId-00000000000 (use shard ID to read from stream)
+--shard-iterator-type TRIM_HORIZON (read from beginning of stream)
+
+
+aws kinesis get-records --shard-iterator <>  
+
+
+
+
+
+
