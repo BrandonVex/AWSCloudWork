@@ -1,0 +1,26 @@
+Automaticall increase / decrease the desired of number of ECS Tasksk
+AMAZON EC2 auto scaling uses AWS application Auto Scaling
+  EC2 Service average CPU utilization
+  EC2 Service average memory utilization
+  ALB Requests count per target - metric coming from the ALB
+Target trecking --- scale based on target value for a specific cloudwatch metric
+Step scaling -- scale based on a specific CloudWatch alarm
+Scheduled scaling -- scale based on a specified date/time
+ECS Service auto scaling is not EC2 auto scaling!!!!!!!!!!!!!!!!
+Fargate auto scaling is much easier on setup (serverless)
+
+--------------------
+
+EC2 Launch type - ASG EC2
+
+Accomodate ECS service scaling by adding underlying EC2 instances
+Auto scaling group scaling
+  scale your ASG based on CPU utilization
+  Add ec2 instances over time
+ECS cluster capacity provider 
+  used to automatically provision and scale the infrastructure for your ECS Tasks
+  capacity provider paired with ASG
+  Add EC2 instances when your missing capacity
+
+-------------------------
+
