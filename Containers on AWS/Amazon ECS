@@ -1,0 +1,55 @@
+ECS - EC2 launch type
+
+ECS = Elastic container service
+Launch docker containers on AWS launch ECS tasks on ECS Clusters
+ECS Launch type: you must provision and maintain the infrastructure
+Each EC2 instance must run the ECS agent to register in the ECS cluster
+AWS takes care of starting / stopping containers
+
+-------------------------------
+
+Fargat Launch type
+
+Launch docker containers on AWS
+You do not provision the infrastructure
+Its all serverless
+You just create task definitions
+AWS just runs ECS tasks for you based on the CPU / RAM you need
+To scale, just increase the number of tasks - no more EC2 instances
+
+---------------------------------
+
+IAM roles for ECS
+
+EC2 instance profile (ec2 launch type only)
+  Used by ECS agent
+  Makes APi calls to ECS service
+  send container logs to cloudwatch logs
+  pull docker image from ecr
+  reference sensitive data in secrets manager or SSM paramete store
+
+ECS task role:
+  Allows each task to have a specific role
+  use different roles for the different ecs services you run
+  Taks role is defined in the task definition
+
+----------------------------------
+
+Load balancer integrations
+
+Application Load balancer supported and works for most use cases | works with fargate
+
+Network load balancer recommended only for high throughput/high performance use cases, or to pair it with AWS private link
+
+-------------------------------------
+
+Data Volumes (EFS)
+
+Mount EFS file systems onto ECS tasks
+Works for both EC2 and Fargate launch types
+Tasks running in any AZ will shate the same data in the EFS File system
+Fargate + EFS = Serverless
+
+Use cases: persistent multi az rshared storage for your containers
+Amazon S3 cannot be mounted as a file system
+
