@@ -1,1 +1,48 @@
+What is a docker?
+
+Docker is a software development platform to deploy apps
+Apps are packaged in containers that can be run on any OS
+Apps run the same, regardless of where they run
+  any machine
+  no compatibility issues
+  Predictable behavior
+  Less work
+  Easier to maintain and deploy
+  works with any language, any OS, any technology
+use cases: Microservices architecture, lift-and-shift apps from on-premises to the AWS cloud
+
+------------------------
+
+Where are docker images stored?
+
+Docker images are stored in Docker repositories
+
+Docker hub
+  Public repository
+  Find base images for many technologies or OS
+Amazon ECR
+  Private repository
+  Public Repository 
+
+-------------------------
+
+Docker Vs Virtual Machines
+
+Docker is "sort of" a virtualization technology, but not exact
+Resources are shared with the host ==> many containers on one server
+
+ -------------------------
+
+Docker management on AWS
+
+ECS - Amazon container services
+  Amazon's own container platform
+EKS - Elastic Kubernetes service
+  Amazon's managed Kubernetes
+AWS Fargate
+  Amazons own serverless container platform
+  Works with ECS and EKS
+AWS ECR
+  store container images
+
 
