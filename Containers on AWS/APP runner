@@ -1,0 +1,13 @@
+Fully managed service that makes it easy to deploy web applications and APIs at scale
+no infrastructure experienced required
+start with your source code or container images
+automatically builds and deploy the web app
+
+--
+
+Automat scaling, highly available, load balancer, encryption
+VPC access support
+connect to database, cache, and message queue services
+
+
+RAPID DEPLOYMENTS
