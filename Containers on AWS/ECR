@@ -1,1 +1,11 @@
+ECR = Elastic COntainer registery
+Store and managed docker images on AWS
+Private and Public repository (ECR public gallery)
+Fully integrated with ECS, backed by amazon S3
+Access is controlled through IAM
+Supports image vulnerability scanning, versioning, image tags, image lifecycle
+
+Docker images = ECR
+
+
 
