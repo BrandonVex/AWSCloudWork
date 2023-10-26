@@ -1,0 +1,22 @@
+Serveless is a new paradigm in which the developers dont have to manage serveres anymore
+they just deploy code
+they just deploy functions
+initially serverless == FaaS
+Serverless was pioneered by AWS lambda but now also includes anything thats managed: databases, messaging, storage etc...
+serverless does not mean there are no serveres, it just means you dont manage or provision them
+
+-----------------
+
+LAMBDA
+DynamoDB
+Cognito
+API Gateway
+S3
+SNS
+SQS
+Kineses Data Firehose
+Aurora Serverless
+Step Functions
+Fargate
+
+----------------------------
