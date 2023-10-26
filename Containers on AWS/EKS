@@ -1,0 +1,39 @@
+EKS = Elastic Kubernetes service
+it's a way to launch managed Kubernetes clusters on AWS
+Kubernetes is an open-source system for the automatic deployment, scaling, and management of containerized applications
+It is an alternative to ECS, with a similar goal but a different API
+Open source = EKS
+EKS supports EC2 if you want to deploy worker nodes, or fargate to deploy serverless containers
+use cases:
+  the company already uses Kubernetes on-premises and wants to migrate to AWS using Kubernetes
+Kubernetes is Cloud agnostic (all clouds)
+
+------------------------------
+
+Node TYPES
+
+Managed node groups
+  Create and manages nodes (EC2) for you
+  Nodes are part of an ASG managed by EKS
+  Supports on-demand or Spot INstances
+
+Self-managed nodes
+  Nodes created by you are registered to the EKS cluster and managed by an ASG
+  you can use prebuilt AMI - Amazon EKS optimized AMI
+  Supports on-demand and spot instances
+
+AWS Fargate
+  No maintenance required; no nodes managed
+
+------------------------
+
+Data volumes
+
+Need to specify StorageClass manifest on your EKS cluster
+Leverages a Container Storage Interface (CSI) compliant driver
+
+Supports for:
+  EBS
+  EFS (With fargate)
+  FSx for Luster
+  FSx for NetApp ONTAP
