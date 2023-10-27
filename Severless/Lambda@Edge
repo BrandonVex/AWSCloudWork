@@ -1,0 +1,69 @@
+Many modern applications execute some form of the logic at the edge
+Edge functions:
+  A code that you write and attach to CloudFront Distributions
+  Runs close to your users to minimize latency
+CloudFront provides two type: CloudFront Functions and Lambda@Edge
+You dont have to manage any servers, deployed globally
+
+Use case: Customize CDN content
+pay only for what you use
+Fully serverless
+-----------------
+
+Use cases:
+
+Website security and Privacy
+Dynamic Web application at the edge
+Search engine optimization (SEO)
+Intelligently Route across origins and data centers
+bot mitigation at the edge
+real-time imahge transformation
+A/B testing
+user authentication and authorization
+user prioritization
+user tracking and analytics
+
+-------------------------
+
+CloudFront Functions:
+
+Lightweight function written in javascript
+for high-scale, latency sensitive CDN customizations
+Sub-ms startup times, millions of requests/second
+used to change viewer requests and responses
+  Viewer requests: after cloudfron receives a request from a viewer
+  Viewer response: before CloudFront forwards the response to the viewer
+Native featur of cloudfront (managed within cloudfront)
+Millions of requests per second
+Max execution time <1ms
+
+---------------------------
+
+Lambda@Edge
+
+Lambda functions written in NodeJS or Python
+Scales up to 1000s of requests/second
+used to change cloudfron requests and responses
+  viewer requests - after cloudfront receives a request from a viewer
+  origin requests - before cloudfront forwards the request to the origin
+  origin response - after cloudfront recieves the response from the origin
+  viewer response - before cloudfront forwards the response to the viewer
+Author your functions in one AWS region, then cloudfron replicates to its locations
+Max execution time 5-10 seconds
+
+
+------------------------
+
+CloudFront:
+  Cache Key normilization
+  Header Manipulation
+  Url rewrites or reditects
+  Request authentication and authorization
+Lambda@Edge
+  Longer execution time
+  Adjustable CPU or Memory
+  youre code depends on a 3rd library
+  Network access to use external services for processing
+  file system access or access to the body of HTTP requests
+
+
