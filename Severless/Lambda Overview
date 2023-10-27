@@ -1,1 +1,67 @@
+What is AWS Lambda?
 
+Lambda:
+  Virtual Functions - no servers to manage
+  Limited by time - short executions
+  Run On-Demand
+  Scaling is automated
+
+---------------------
+
+Benefits of Lambda
+
+Easy pricing:
+  Pay per request and compute time
+  Free tier of 1,000,000 AWS lambda requests and 400,00 GBs of compute time
+
+Integrated with the whole AWS suite of services
+integrated with many programming languages
+easy monitoring through AWS cloudwatch
+Easy to get more resources per function
+Increasing ram will also improve CPU and Network <----------- KNOW
+
+-------------------------
+
+Language Support
+
+Node.js
+Python
+Java (8)
+C# (.NET core)
+Golang
+C#/powershell
+Ruby
+Custom Runtime API
+
+Lambda container image
+  the container image must implement the Lambda Runtime API
+  ECS / Fargate is preferred for running arbitrary docker images
+
+--------------------------
+
+Main Ones : intergrations
+
+API Gateway 
+Kineses (data transformations)
+DynamoDB (Triggers)
+S3 (triggered for file creation)
+CloudFront (lambda at edge)
+EventBridge (infratructure reaction)
+SNS (react to notifications)
+SQS (Perform the queues)
+CloudWatchLogs
+Cognito (react to when users enter database)
+
+--------------------
+
+Lambda Pricing Examples
+
+Pay Per calls:
+  1,000,000 requeust for free
+  0.20$ per 1 million requests after
+Pay per duration: in increments of 1 ms
+  400,000 GB-seconds of compute time per month for free
+  == 400,000 seconds if function is 1GB ram
+  == 3,200,000 seconds if function is 128GBof ram
+  after that $1.00 for 600,000 GBs
+It is usually very cheap to run AWS lambda so its popular
