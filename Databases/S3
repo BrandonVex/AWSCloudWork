@@ -1,0 +1,11 @@
+S3 is a ... Key / value store for objects
+Great for bigger objects, not so great for many small objects
+serverless, scales infinitely, max object size is 5TB, versioning capability
+Tires: S3 standard, S3 IA, S3 intelligent, S3 Glacier + Lifecycle policies
+features: Versioning, Replication, MFA-Delete, access Logs
+Security: IAM, Bucket policies, ACL, Access Points, Object Lambda, CORS, Object/vault lock
+encryption: SSE-S3, SS3-KMS, SSE-C, client-side, TLS in transit, Default encryption
+Batch operations on objects using S3 bactch, listing files using S3 inventory
+Performance: multi-party upload, S3 transfer acceleration, S3 select
+Automation: S3 Event Notifications (SQS, SNS, Lambda, EventBridge)
+Use cases: static files, key value store for big files, website hosting
