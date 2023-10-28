@@ -1,0 +1,23 @@
+Choosing the right database:
+  A lot of managed databases on AWS to choose from
+  Questions to choose the right database in on your architecture
+    Read heavy, write heavy, or balanced workload? Throughput needs? will it change, does it need to scale or fluctuate during the day?
+    How much data to store and for how long? will it grow? average object size? how are they accessed?
+    Data durability? Source of truth for the data?
+    Latency Requirements? Concurrent users?
+    Data model? How will you query data? Joins? Structured? Semi-structured?
+    Strong schema? More flexibility? Reporting? search? RDBMS / NoSQL?
+    License costs? switch to Cloud Native DB?
+
+-----------------------------
+
+Database types
+
+RDBMS (= SQL / OLTP) RDS, Aurora --- great for joins
+NoSQL database - no joins -  no SQL: DynamoDB, ElastiCache, Neptune, DocumentDB, Keyspaces
+Object store: S3 (big objects) Glacier (backups)
+Data warehouse (=SQL Analytics / BI): Redshift (OLAP) Athena, EMR
+Search: OpenSearch - Free text, unstructured searches
+Graphs: Amazon neptune -- displays relationships between data
+Ledger: Amazon Quantam Ledger Database
+Time series: Amazon TimeStream
