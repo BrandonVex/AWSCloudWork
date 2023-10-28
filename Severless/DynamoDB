@@ -1,0 +1,43 @@
+Fully managed database, highly available with replication across multiple AZs
+NoSQL datatbase - not a relational database with transaction support
+scales to massive workloads, distributed database
+Millions of requests per second, trillions of row, 100s of TB of storage
+Fast and consistent in performance (single digit miliseconds)
+integrated with IAM for security, authorization and administration
+Low cost and auto-scaling capabilities
+no maintenance or patching, always available
+Standard & Infrequent Access databases
+-------------------
+
+DynamoDB is made of TABLES
+Each table will have a primary key (decided at creation time)
+Each table can have an infinite number of items (=rows)
+Each item has attributes (can be added overtime -- null also)
+Maximum size of an item is 400KB
+Datat types:
+  Scalar types - string, number, binary, boolean, null
+  Docs - list, map
+  Set Types - sTRING SET, bINARY SET, NUMBER SET
+Therefore in DynamoDB you can rapidly evolve SCHEMAS <---- important
+
+-------------------
+
+READ/WRITE
+
+Control how you manage your tables capcaity
+Provisioned mode
+  You specify the number of read/writes per second
+  you need to plan capacity beforehand
+  Pay for ptovisioned read capacity units and write capacity units
+  Possibility to add auto-scaling mode for RCU and WCU
+  Predictable/smoothly
+On-Demand
+  Read/writes automatically scale up/down with your workloads
+  no capacity planning needed
+  pay for what you use, more expensive
+  Great for unpredictable workloads, steep sudden spikes
+
+
+
+KEY WORDS:  Provisioned, Auto-scaling, Unpredictable, Steep Sudden Spikes, SCHEMA
+
