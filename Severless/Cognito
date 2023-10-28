@@ -1,0 +1,35 @@
+Give users an identity to interact with our web or mobile app
+cognito user pools: 
+  sign in functionality wfor app users
+  integrate with API gateway and ALB
+Cognito Identity Pools
+  provide AWS credentials to users so they can access AWS resources directly
+  integrate with Cognito User Pools as an identity provider
+Cognito = web/mobile hundreds, SAML, mobile
+
+-------------------------------
+
+CUP (User pool)
+
+Create a serverless database of user for your web & mobile apps
+simple loging
+password reset
+email and phone number verification
+MFA
+Federated identites
+CPU integrates with API gateway and ALB
+
+------------------------------
+
+Federated Identities
+
+Get identities for users so they obtain temporary AWS credentials
+users source can be Cognitos User Pools, 3rd party
+Users can then access AWS services directly or through API gateway
+The IAM policies applied to the credentials are defined in cognito
+they can be customized based on the user_id for fine grained control
+Default IAM roles for authenticated and guest users
+
+--------------------------
+
+
