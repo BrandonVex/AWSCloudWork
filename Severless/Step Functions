@@ -1,0 +1,10 @@
+Build serverless visual workflow to orchestrate your lambda functions
+Features:
+  Sequencing
+  parallel
+  conditions
+  timeouts
+  error handling
+Can integrate with EC2, ECS, On premises, API Gateway, SQS, etc...
+Possibility of implementing human approval feature
+use cases: order fulfilment, data processing, web applications, any workflow
