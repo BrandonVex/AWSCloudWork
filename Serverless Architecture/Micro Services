@@ -1,0 +1,26 @@
+We want to switch to micro service architecture
+Many services interact with each other directly using REST API
+Each architecture for each micro service may vary in form and shape
+We want a micro-service architecture so we can have a leaner development lifecycle for each service
+
+--------------------------------------
+
+USERS ---> HTTPS ---> ELB ---> ECS ---> DynamoDB
+USERS ---> Route 53 ---> HTTPS ---> ELB ---> ECS ---> DynamoDB
+USERS ---> HTTPS ---> API Gateway ---> Lambda ---> ElastiCache
+USERS ---> HTTPS ---> ELB ---> EC2 auto scaling ---> RDS
+
+---------------------------------------
+
+you are free to design each micro-service the way you want
+synchronous pattern: API gateway, load balancer
+asynchronous patterns: SQS, Kineses, SNS, S3 lambda
+Challenges with micro-services:
+  repeated overhead for creating each new microservice
+  issues with optimizing server density/utilization
+  complexity of running multiple versions of multiple microservices simultaneously
+  Proliferation of client-side code requirements to integrate with many separate services
+Some of the challenges are solved by Serverless patterns
+  Serverless stuff
+  You can easily clone API, reproduce environments
+  generate client SDK through swagger integration for the API gateway
