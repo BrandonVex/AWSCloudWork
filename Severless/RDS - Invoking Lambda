@@ -1,0 +1,16 @@
+Invoke lambda functions within your DB instance
+allows you to process data events from within a database
+supported for RDS for PostgreSQL and Aurora MySQL
+Must allow outbound traffic to your Lambda Function from within your DB instance
+DB instance must have the required permissions to invoke the lambda functions (proper IAM policies)
+
+---------------
+
+RDS Event notifications
+
+Notifications that tells information about the DB instance itself
+you dont have any information about the data itself
+Subscrib to the following event categories: DB instance, Snapshot, Parameter group, security groups, proxy, custom engine version
+Near real-time events
+send notifications to SNS or subscribe to events using EVentBridge
+
