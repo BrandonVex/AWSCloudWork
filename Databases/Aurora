@@ -1,0 +1,12 @@
+Compatible API for PostgreSQL / MySQL, seperation of storage and compute
+Storage: data is stored in 6 replicas across 3 AZ's - highly available, self-healing, auto scaling
+Compute: Cluster of DB instance across multiple AZ, auto-scaling of read replicas
+Cluster: Custom endpoints for writer and reader DB instances
+Same security / monitoring / maintenance features as RDS
+Know the backup and restore options for aurora
+Aurora serverless - for unpredictable / intermittent workloads, no capacity planning
+Aurora Multi-Master - for continuous writes failover
+Aurora Global: up to 16 DB read instances in each region, < 1 second storage replication
+Aurora Machine Leaning: perform ML using SageMaker and Comprehend on Aurora
+Aurora Database cloning: new cluster from existing one, faster than restoring a snapshot
+Use cases: Same as RDS, but with less maintenance, more flexibility, more performance, more features
