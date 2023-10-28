@@ -1,0 +1,12 @@
+Managed PostgreSQL / MySQL/ Oracle / SQL Server / MariaDB / Custom
+Provisioned RDS instance size and EBS volume tpye & size
+auto-scaling capability for storage
+support for read replicas and multi-az
+Security through IAM, Security Groups, KMS, SSL in transit
+Automated backup with point in time restore feature (35 days)
+Manual DB snapshot for longer-term recovery
+Managed and schedules maintenance (downtime) 
+Support IAM authentication, integration with secrets manager
+RDS Custom for access to and customize the underlying instance (Oracle and SQL servers)
+
+Use cases: Store relational datasets (RDBMS / OLTP), perform SQL queries, transactions
