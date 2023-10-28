@@ -1,0 +1,10 @@
+Apache Cassandra is an Open-source NoSQL distributed database
+A managed Apache Cassandra compatible database service
+serverless, scalable, highly available, fully managed by AWS
+Automatically scale tabless up/down based on traffic
+tables are replicated 3 times across multiple AZ
+using the Cassandra Query Language (CQL)
+Single-digit millisecond latency at any scale, 1000s requests per second
+capacity: on-demand mode or provisioned with auto-scaling
+encryption: PITR up to 35 days
+use cases: Store IoT devices info, time-series data
