@@ -1,0 +1,10 @@
+Managed Redis / Memchaced
+In-memory data store, sub-millisecond latency
+Select an ElastiCache instance type
+support for clustering (Redis) and Multi-Az, read replicas (sharding)
+Security through IAM, Security Group, KMS, Redis Auth
+Backup / Snpashot / Point in time restore
+Managed and Scheduled maintenance
+Requires Some application code changes to be leveraged <----- REMEMEBR 
+Use cases: Key/Value store, Frequent reads, Less writes, cache results for DB queries, store session data for websites, cannot use SQL
+
