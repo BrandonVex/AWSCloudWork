@@ -1,0 +1,12 @@
+AWS proprietary technology, managed serverless NoSQL database, millisecond latency
+Capacity modes: provisioned capacity with optional auto-scaling or on-demand capcity
+Can replace ElastiCache as a key/value store (store session + ttl)
+Highly available, multi AZ by default, read and writes are decoupled, transaction capability
+DAX cluster for read cache, microsecond read latency
+Security, authentication, and authorization is done through IAM
+Even proccessing: DynamoDB streams to integrate with AWS Lambda, or kinesis data streams
+Global Table feature: active-active replication
+Automated backups to 35 days with (PITR), Or on-demand backups
+Export to S3 without using RCU within thge PITR window, import from S3 without using WCU
+Great to rapidly evolve schema <---- KNOW
+Use cases: Serverless applications development (files around 100KB), distributed serverless cache
