@@ -1,0 +1,65 @@
+building serverless API
+
+Client ---> API gateway ----> lambda ----> DynamoDB
+
+----------------------------
+
+API Gateway
+
+AWS Lambda + API Gateway: No infrastructure to manage
+Supports for the websocket protocl
+Handle API versioning
+Handle different environements
+Handle Security (Authentication and Authorization)
+Create API keys, handle request Throttling
+Swagger / OpenAPI import to quickly define APIS
+Transform and validate requests and responses
+generate SDK and API specifications
+Cache API responses
+
+--------------------
+Integrates HIGH LEVEL
+
+Lambda
+  Invoke lambda functions
+  easy way to expose REST API backed by LAMBDA
+HTTP
+  Expose HTTP endpoints in the backend
+  Example: internal HTTP API on premises, ALB
+  Why? add rate limiting feature, caching, user, API keys.
+AWS Service
+  Expose any AWS API through the API Gateway
+  Example: start an AWS step function workflow, post messages to SQS
+  Why? Add authentication, deploy publicly, rate control
+
+--------------------------
+
+Client ----> API Gateway ---> Kinesis DATA Streams ---> Kineses data firehose ---> S3
+
+---------------------------
+
+Enpoint TYPES
+
+Edge-optimized (default): for global clients
+  requests are routed through the cloudfront edge locations
+  the api gateway still lives in only one region
+Regional
+  For clients within the same region
+  could manually combine with cloudfront
+Private
+  can only be accessed within your VPC using an interface VPC Endpoint (ENI)
+  use a resource policy to define access
+
+------------------------
+
+Security
+
+User authentication through
+  IAM Roles (internal applications)
+  Cognito (external users)
+  Custom Authorizer (your own logic)
+Custom Domain Name HTTPS security through integration with AWS Certificate Manager (ACM)
+  if using edge-optimized endpoint, then the certificate must be in US EAST 1
+  if using regional endpoint, the certificate must be in the API gateway region
+  Must setup CNAME or A-alias record in Route 53
+
