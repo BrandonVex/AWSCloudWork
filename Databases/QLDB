@@ -1,0 +1,7 @@
+QLDB stands for "Quantam Ledger Database"
+A ledger is a book recording financial transactions
+fully managed, serverless, high available, replication across 3 AZ
+used to review history of all the changes made to your application data over time
+immutable system: no entry can be removed or modified, cryptographically verifiable
+2-3x better performance than common ledge blockchain frameworks, manipulate data using SQL
+Difference with Amazon Managed BlockChain, no decentralization component, in accordance with financial regulation rules
