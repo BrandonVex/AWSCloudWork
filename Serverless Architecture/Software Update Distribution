@@ -1,0 +1,18 @@
+We have an application running on EC2, that distributes software updates once in a while
+when a new software update is out, we get a lot of requests and the content is distributed in mass over the network. very costly
+we dont want to change our application, but want to optimize our cost and CPU, how can we do it?
+----------------------------
+
+Users ----> ELB ---> ASG/EC2 ---> EFS (current state needing to be fixed)
+Users ----> CloudFront ---> ELB ---> ASG/EC2 ---> EFS (easy fix!)
+
+Why Cloudfront?
+  No changes to architecture
+  will cache software update files at the edge
+  software updates files are not dynamic, they are static
+  our ec2 instances arent serverless
+  but cloudfront is and will scale for us
+  our ASG will not scale as much and well save tremendously in EC2
+  We'll also save in availability, network bandwidth cost
+  Easy way to make an existing application more scalable and cheaper
+
