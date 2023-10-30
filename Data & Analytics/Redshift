@@ -1,0 +1,37 @@
+Redshift is based on PostgreSQLl, but its not used for OLTP
+Its OLAP -- online anlytical proccessing
+10x better performance than other data warehouses scales to PBs of data
+columnar storage of data and parallel query engine
+pay as you go based on the instances provisioned
+has a SQL interface for performing queries
+BI tool suck as Quicksight or Tableau intergrate with it
+Vs Athena: Faster queries / joins / aggregations thanks to indexes
+
+-------------
+
+Redshift cluster
+
+Leader node: for query planning, results aggregation
+Compute node: for performing queries, send to the leader
+you provision the node size in advanced
+you can used reserved instances for cost savings
+
+----------------
+
+Snapshots and DR
+
+Redshift has "MUlti az" for some cluster types
+Snapshots are PIT backups of a cluster stored in S3
+Snapshots are incrememental
+you can resor a snapshot into a new cluster
+automated: every 8 hour, 5GB or on a schedule
+manual: snapshot is retained until you delete it
+You can configure amazon redshift to automatically copy snapshot of a cluster to another AWS region
+
+--------------------
+
+Redshift spectrum
+
+Query data that is already in S3 without loading it
+Must have a redshift cluster available to start the query
+the query is then submitted to thousands of Redshift Spectrum Nodes
