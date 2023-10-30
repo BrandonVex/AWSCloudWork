@@ -1,0 +1,25 @@
+Serverless query service to analyze data stored in amazon S3
+Uses standard SQL langyage to query the file (built on presto)
+supports CSV, JSON, ORC, Avro, Parquet
+Pricing $5.00 per TB of data scanned
+Commonly used with Amazon Quicksight for reporting/dashboardsz
+use cases: Business Intelligence / Analytics / Reporting, analyze, and query VPC flow logs / ELB logs / CLoudWatch Trails
+Exam tip:Analyze data in S3 serverless = athena
+
+----------------
+
+Use columnar data for cost savings (less scan)
+  apache parquet or ORC is rewcommended
+  huge performance improvement
+  Use GLUE to convert your data to parquet or ORC
+Compress data for smaller retrieval 
+Partition dataset in S3 for easy querying on virtual columns
+Use larger files >128 mb to minimize overhead
+
+-----------------
+
+Federated Query
+
+Allows you to run SQL queries across data stored in relational, non relational,, object and custom data sources
+Uses data source Connectors that run on AWS lambda to run federated queries
+store the results back in amazon S3
