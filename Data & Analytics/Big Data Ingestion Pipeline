@@ -1,0 +1,35 @@
+IoT devices ---->  Kinesis Data stream ---> Data firehose ---> S3 ---> SQS ---> Lambda ---> Athena ---> Pulls Fromm S3 ---> reporting bucket S3 ---> QuickSight ---> Redshift
+
+-------------------
+
+IoT Core allows you to harvest many data
+
+from many IoT devices.
+
+Kinesis is great real-time data collection,
+
+and Firehose helps you with data delivery
+
+to S3 in near real-time,
+
+so one minute is the lowest frequency you can choose.
+
+Lambda can help Firehose with data transformation,
+
+and then, Amazon S3 can trigger notifications to SQS,
+
+SNS or Lambda.
+
+Lambda can subscribe to SQS, but we could, as I've said,
+
+connected S3 to Lambda, and Athena is a serverless
+
+SQL service, and we can store the results
+
+of Athena directly back into S3.
+
+And the reporting buckets contain analyzed data
+
+and we can use reporting tools, such as QuickSight,
+
+for visualization or Redshift,
