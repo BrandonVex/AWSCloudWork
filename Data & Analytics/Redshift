@@ -35,3 +35,4 @@ Redshift spectrum
 Query data that is already in S3 without loading it
 Must have a redshift cluster available to start the query
 the query is then submitted to thousands of Redshift Spectrum Nodes
+COPY/UNLOAD =- Enhanced VPC routing
