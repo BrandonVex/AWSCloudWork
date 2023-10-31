@@ -1,0 +1,11 @@
+Kafka is alternative to amazon kineses
+Fully managed apache KAFKA on aws
+  allows you to create, update delete clusters
+  MSK creates and manages Kafka Brokers nodes and zookeeper nodes for you
+  dploy MSK cluster into VPC, multi AZ
+  automatic recovery from common apache KAFKA failures
+  data is stores on an EBS volumes for as long as you want
+MSK Serverless
+
+---------------------------
+
