@@ -1,0 +1,25 @@
+SQL Applications
+
+Real time analytics on Kineses Data streams and firehose using SQL
+add reference data tfrom amazon S3 to enrich streaming data
+fully managed, no servers to provision
+automatic scaling
+pay for actualy consumption rate
+output
+  kinesis data streams: create streams out of the real time analytics queries
+  kinesis data firehose: send analytics query results to destinations
+use cases:
+  time-series analytics
+  real time dashboards
+  real time metrics
+
+----------------------------------------
+
+Apache FLink
+
+Use FLINK: Java to process and analyze streaming data
+run any flink application on a managed cluster on aws
+  provisioning compute resources, parallel computation, automatic scaling
+  application backups
+  use any apache flink programming features
+  flink does not read from firehose
