@@ -1,1 +1,14 @@
+Amazon OpenSearch is successor to Amazon ElasticSearch
+In Dynamo DB queries only exist by primnary key or indexes
+with openSearch you can search any field even partially matches
+its common to use OpenSearch as a complement to another database
+two modes: managed cluster or serverless cluster
+Does not nativley support SQL 
+ingestion from data firehose, IoT, and CLoudwatch logs
+security through cognito, IAM, KMS Encryption TLS
+Comes with OpenSearch dashboards
+
+-----------------------
+
+DynamoDB ----> DynamoDB stream ---> Lambda Function ---> OpenSearch
 
