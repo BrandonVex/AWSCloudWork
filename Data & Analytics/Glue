@@ -1,0 +1,22 @@
+Managed Extract, Transform, and Load service (ETL)
+useful to prepare and transform data for analytics
+fully serverless service
+
+Convert data into Parquet format!!
+
+S3 (put)---> Import CSV (Glue) ---> Parquet ---> S3 ----> Analyze (Athena)
+Use lambda function to automate
+
+--------------------
+
+
+High Level -->
+
+Glue Job Bookmarks: Prevent reprocessing old data
+Glue Elastic Views
+  combine and replicate data across multiple data stores using SQL
+  no custom code, glue monitors for changes in the source data, serverless
+  leverages a virtual table
+Glue DataBrew: Clean and normalize data using pre-built transformation
+Glue Studio: new GUI to create, run and monitor ETL jobs in glue
+Glue Streaming ETL
