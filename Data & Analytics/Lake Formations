@@ -1,0 +1,8 @@
+Data Lake = central place to have all your data for analytics purposes
+Fully managed service that makes it easy to setup a datalake in days
+discover, cleanse, transform and ingest data into your data lake
+De-duplication
+Combine structured and unstructured data in the lake
+Out of the box source blueprints: S3, RDS, Relations, NoSQL
+Fine grained access cointrols for your applications for row and column level
+Built ontop AWS GLUE
