@@ -1,0 +1,21 @@
+EMR stands for Elastic Map Reduce
+EMR helps creating Hadoop Clusters BIG DATA to analyze and proccess vast amount of data
+HBadoop / BIG = EMR
+The cluster can made of hundreds of EC2
+EMR comes bundled with Apache Spark, Hbase, Presto
+EMR takes care of all the provisioning and confiigurations
+Auto scaling and integratated with spot instances
+Use cases: Data proccessing, machine learning, web indexing BIG DATA
+------------
+
+nODE tYPES AND pURCHASING
+
+Master node: manage the cluster, coordinate, manage health - long running
+Core node: Run tasks and storee data - long running
+Task node: just to run tasks - usually spot
+Purchasing options:
+  on demand: reliable, predictable, wont be terminated
+  Reserved (min 1 year): cost savings EMR will automatically use
+  Spot instances: cheaper, can be terminated, less reliable
+Can have long running cluster or transient cluster
+
