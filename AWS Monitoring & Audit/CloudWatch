@@ -1,0 +1,17 @@
+Cloudwatch metrics 
+
+Cloudwatch provide metrics for every service in AWS
+Metric is a variable to monitor
+Metrics belong to namespaces
+dimensions is an attribute of a metic
+up to 30 dimensions per metric
+metrics have timestamps
+can create cloudwatch dashboards of metrics
+can create CloudWatch custom metrics (for RAM as example)
+
+------------------
+
+Metric Streams
+
+Continually stream cloudwatch metrics to a destination o your choice with near-real time delivery and low latency
+Option to filter metrics to only stream a subset of them
