@@ -1,0 +1,7 @@
+Automatically convert speech into text
+
+Audio ---> Text
+
+uses deep learning process called Automatic speech recognitions ASR
+automatically remove personally identifiable information using redaction
+Supports automatic language identification for multi-lingual audio
