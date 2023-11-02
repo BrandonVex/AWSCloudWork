@@ -1,0 +1,32 @@
+alarms are used to trigger notifications from any metrics
+various options
+alarm states
+  ok
+  insufficient data
+  alarm
+period
+  length of time in seconds to evaluate the metric
+  high resolution custom metrics
+
+--------------
+
+Targets
+
+Stop, terminate or recover instances
+trigger ASG
+send notification to SNS
+
+
+---------------------
+
+Composite alarms
+
+Composite alarms are monitoring state of multiple other alarms
+AND and OR conditions
+
+--------------------------
+
+Good to know
+
+alarms can be created based on cloudwatch logs metrics filters
+to test alarms and notifications set the alarm using CLI
