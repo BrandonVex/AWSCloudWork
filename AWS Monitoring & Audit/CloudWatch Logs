@@ -37,3 +37,11 @@ S3 EXPORT
 
 Log data can take up to 12hours to become available to export
 API call is create export task
+
+-----------------
+Cloudwatch log subscriptions
+
+subscription filter - filter logs are events delivered to your destination
+get real time log events from cloudwatch logs for processing and analysis
+cross-account subscriptions - send log events to resources in a different aws account
+
