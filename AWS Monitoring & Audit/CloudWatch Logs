@@ -1,0 +1,39 @@
+Log Groups: arbitrary name, usually representing an application
+Log Stream: instances withing application / log files/container
+can define log expiration policies (never expire) 
+Cloudwatch logs can send logs to:
+  S3
+  Data streams
+  Firehose
+  LAMBDA
+  OpenSearch
+Can setup KMS based encryption with your own keys
+
+-------------------
+
+Sources:
+
+SDK, CloudWatch Logs Agent/ Unified Agent
+eLASTIC bEANSTALK: COLLECTION OF LOGS FROM APPLICATION
+ECS: collection from containers
+AWS LAMBDA: collection from function logs
+Route53: DNS
+API GATEWAY
+CloudTrail based on filter
+VPC Flow logs
+
+------------------
+
+Logs insights
+
+Search and analyze log data stored in cloudwatch logs
+Provides purpose-built query language
+Can query multipole log groups in different AWS accounts
+its a query engine, not real time
+
+-----------------
+
+S3 EXPORT
+
+Log data can take up to 12hours to become available to export
+API call is create export task
