@@ -1,0 +1,34 @@
+Cloudwatch logs for EC2
+
+By defaul no logs from your ec2 machine will go int cloudwatch
+you need to run a cloudwatch agent on ec2 to push the log files you want
+make sure IAM permissions are correct
+the cloudwatch log agent can be setup on premises
+
+-------------------
+
+Logs agent and unified agent
+
+For virtual servers
+Cloudwatch logs agent:
+  old version
+  only to cloudwatch
+unified agent
+  collect addiotional system level metrics
+  collect logs to send to cloudwatch logs
+  centralized configuration using SSM parameter store
+
+---------------------------
+
+Metrics
+
+Collect directly on your linux server/ec2 instance
+
+CPU
+Disk Metrics
+RAM
+NetStats
+Processes
+Swap Space
+
+Notes: out of the box metrics for ec2
