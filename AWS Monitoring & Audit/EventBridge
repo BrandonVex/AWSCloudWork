@@ -1,0 +1,11 @@
+Scheduled: Cron jobs
+Event pattern: event rules to react to a service doing something
+even buses can be accessed by other aws accounts using resource based policies
+you can ARCHIVE EVBENTS
+ability to replay archived events
+EventBridge can analyze events in your bus and infer the schema
+the schema registry allows you to generate code for your applications
+schema can be versioned
+
+Manage permissions for a specific event bus
+use case: aggregate all events from your organization in a single account
